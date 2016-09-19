@@ -1,0 +1,197 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.container{
+  display: flex;
+  padding: 7vh 1.5vw;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.card{
+  width: 24vw;
+  height: auto;
+  margin: 0 0.7vw;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+.car-image{
+  width: 100%;
+  height: 25vh;
+  background-image: url(http://carrrsmag.com/data_images/models/renault-captur/renault-captur-05.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+.card:nth-child(2) .car-image{
+  background-image: url(http://renault-belgorod.ru/userfiles/images/00047177_brown_1920x1080.jpg);
+}
+.card:nth-child(3) .car-image{
+  background-image: url(http://livecars.info/uploads/posts/2015-09/1442858489_2016-renault-megane.jpg);
+}
+.car-number{
+  width: auto;
+  background: white;
+  top: 1.5vh;
+  left: 1vw;
+  position: absolute;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+.car-number .flag{
+  width: 12px;
+  height: 2.9vh;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Non-EU-section-with-UA-2015.png/100px-Non-EU-section-with-UA-2015.png);
+  background-size: 12px 3vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  float: left;
+}
+.car-number p{
+  line-height: 2.9vh;
+  margin: 0;
+  display: inline-block;
+  padding: 0 5px;
+}
+.car-location{
+  position: absolute;
+  top: 1.5vh;
+  right: 1vw;
+}
+.car-location p{
+  line-height: 3vh;
+  margin: 0;
+}
+.car-info{
+  padding: 3vh 3vw 3vh 7.5vw;
+  position: relative;
+}
+.car-info p{
+  font-size: 1.3em;
+  display: inline-block;
+  margin: 0 1vw;
+  font-weight: 300;
+}
+.car-info p.call-num{
+  width: 4.5vw;
+  line-height: 4.5vw;
+  text-align: center;
+  background: white;
+  border-radius: 100%;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.51);
+  font-size: 2em;
+  margin: 0;
+  color: black;
+  border: 1px solid #70c050;
+  position: absolute;
+  left: 3vw;
+}
+.car-info h4{
+  font-size: 1.5em;
+  margin: 0 1vw 0.7vh 1vw;
+  font-weight: 300;
+  line-height: 2.5vw;
+}
+.car-report-form{
+  padding: 1vh 3vw 4vh 3vw;
+  text-align: center;
+}
+.car-report-form form{
+  display: none;
+}
+.car-report-form .show-form{
+  text-align: center;
+  display: inline-block;
+  padding: 0 3vw;
+  background: #70c050;
+  border: 1px solid #70c050;
+  color: white;
+  line-height: 7vh;
+  font-size: 1.4em;
+  border-radius: 50px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.car-report-form .show-form:hover{
+  background: transparent;
+  color: #70c050;
+}
+.car-report-form .show-report{
+  text-align: center;
+  display: inline-block;
+  padding: 0 3vw;
+  background: #FF5722;
+  border: 1px solid #FF5722;
+  color: white;
+  line-height: 7vh;
+  font-size: 1.4em;
+  border-radius: 50px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.car-report-form .show-report:hover{
+  background: transparent;
+  color: #FF5722;
+}
+.car-report-form p{
+  text-align: center;
+  font-size: 1.3em;
+  margin: 1vh 0 2vh 0;
+}
+.car-report-form .field{
+  width: 100%;
+  margin: 0;
+}
+.car-report-form .field input{
+  width: 100%;
+  height: 5vh;
+  outline: none;
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.17);
+  border-radius: 5px;
+  padding: 0 2vw;
+  box-sizing: border-box;
+  font-size: 1.1em;
+  margin: 1vh 0;
+}
+.car-report-form .field input:focus{
+  border: 1px solid rgba(0, 0, 0, 0.37);
+}
+.car-report-form .field label{
+  font-size: 10px;
+  display: none;
+}
+.car-report-form ::-webkit-input-placeholder{
+  color: black;
+}
+.car-report-form .actions{
+  width: 100%;
+  text-align: center;
+}
+.car-report-form .actions input{
+  width: 100%;
+  line-height: 6vh;
+  background: #70c050;
+  border: 1px solid #70c050;
+  border-radius: 10px;
+  font-size: 1.5em;
+  color: white;
+  margin-top: 1vh;
+  cursor: pointer;
+  font-weight: 300;
+  -webkit-appearance: none;
+  transition: all 0.3s ease;
+}
+.car-report-form .actions input[type="submit"]:hover{
+  background: transparent;
+  color: #28b658;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

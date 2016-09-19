@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  author_id: 1
+  car_id: 1
+  mileage_before: 1
+  mileage_after: 1
+  mileage_day: 1
+  mileage_day_gps: 1
+  fuel_spend: 1
+  fuel_income: 1.5
+
+two:
+  author_id: 1
+  car_id: 1
+  mileage_before: 1
+  mileage_after: 1
+  mileage_day: 1
+  mileage_day_gps: 1
+  fuel_spend: 1
+  fuel_income: 1.5

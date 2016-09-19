@@ -1,0 +1,62 @@
+.reports-container
+  - @reports.each do |report|
+    .report
+      %table(class="reports-table")
+
+        %tbody
+          %tr(class="reports-header")
+            %td= 'Позывной'
+            %td= 'Пробег начало смены'
+            %td= 'Пробег конец смены'
+            %td= 'Пробег за смену'
+            %td= 'Пробег по бортовому журналу'
+            %td= 'Пробег за смену GPS'
+            %td= 'Максимальная скорость'
+            %td= 'Потрачено топлива'
+            %td= 'Заправлено топлива'
+          %tr(class="reports-body")
+            %td
+              %p(class="call-num")= Car.find_by(:id => report.car_id).call_num
+            %td= "#{report.mileage_before} км"
+            %td= "#{report.mileage_after} км"
+            %td= "#{report.mileage_day} км"
+            %td= "#{report.mileage_board} км"
+            %td= "#{report.mileage_day_gps} км"
+            %td= "#{report.max_speed} км/ч"
+            %td= "#{report.fuel_spend} л"
+            %td= "#{report.fuel_income} л"
+      .reports-footer
+        .car-number
+          %p= Car.find_by(:id => report.car_id).legal_num
+        %p
+          %i(class="fa fa-calendar")
+          = report.report_date.strftime("%d.%m.%Y")
+        - if report.mileage_match == true
+          %p(class="mileage-match")
+            %i(class="fa fa-check")
+            Пробег соответствует
+        - else
+          %p(class="mileage-different")
+            %i(class="fa fa-times")
+            Пробег не соответствует
+        - if report.fuel_difference > 0
+          %p(class="fuel-different")
+            %i(class="fa fa-tint")
+            Заправлено на
+            = report.fuel_difference
+            л больше
+        - else
+          %p(class="fuel-match")
+            %i(class="fa fa-tint")
+            Расход топлива соответствует
+        - if report.overspeed
+          %p(class="overspeed")
+            %i(class="fa fa-tachometer")
+            Превышение скорости на
+            = report.overspeed
+            км/ч
+        - else
+          %p(class="normal-speed")
+            %i(class="fa fa-tachometer")
+            Скорость не превышена
+        = link_to 'Destroy', report, :method => :delete, :data => { :confirm => 'Are you sure?' }

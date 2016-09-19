@@ -1,0 +1,25 @@
+= simple_form_for(@car) do |f|
+  - if @car.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@car.errors.count, "error")} prohibited this car from being saved:"
+      %ul
+        - @car.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :legal_num
+    = f.text_field :legal_num
+  .field
+    = f.label :call_num
+    = f.text_field :call_num
+  .field
+    = f.label :mileage
+    = f.text_field :mileage
+  .field
+    = f.label :car_base
+    = f.text_field :car_base
+  .actions
+    = f.submit 'Save'

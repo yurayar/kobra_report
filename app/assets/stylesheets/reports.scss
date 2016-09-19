@@ -1,0 +1,106 @@
+// Place all the styles related to the reports controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.reports-container{
+  width: 100vw;
+  padding: 10vh 5vw;
+}
+.report{
+  margin: 2vh 0;
+  border: 1px solid #EFEFEF;
+  border-radius: 5px;
+}
+.reports-table{
+  width: 100%;
+  border-spacing: 0;
+  padding: 0;
+}
+.reports-table tr{
+  width: 100%;
+  text-align: center;
+}
+.reports-table .reports-header{
+  height: 6vh;
+  font-size: 12px;
+}
+.reports-table tr.reports-body{
+  height: 10vh;
+  background: #F5F5F5;
+}
+.report .reports-footer{
+  width: 100%;
+  height: 5.5vh;
+  background: #EEEEEE;
+  display: flex;
+  padding: 0 1vw;
+  line-height: 5.5vh;
+}
+.reports-footer i{
+  margin-right: 0.1vw;
+}
+.reports-footer p{
+  margin: 0 1vw;
+  font-size: 1.2em;
+  padding: 0;
+}
+.reports-footer p.mileage-match{
+  color: #088002;
+}
+.reports-footer p.mileage-different{
+  color: #F44336;
+}
+.reports-footer p.fuel-match{
+  color: #088002;
+}
+.reports-footer p.fuel-different{
+  color: #F44336;
+}
+.reports-footer p.normal-speed{
+  color: #088002;
+}
+.reports-footer p.overspeed{
+  color: #F44336;
+}
+.reports-table td {
+  padding: 0 1vw;
+}
+.reports-body td{
+  white-space: nowrap;
+  font-size: 1.2em;
+}
+.reports-table td p{
+  font-size: 1.2em;
+}
+.reports-table td p.call-num{
+  width: 7vh;
+  height: 7vh;
+  line-height: 7vh;
+  border-radius: 100%;
+  background: #FF5722;
+  color: white;
+  font-size: 1.7em;
+  margin: 0;
+  display: inline-block;
+}
+.reports-container .car-number{
+  background: white;
+  border: 1px solid black;
+  border-radius: 2px;
+  position: relative;
+  display: inline-block;
+  margin: 0 1vw 0 0;
+  height: 2.9vh;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Non-EU-section-with-UA-2015.png/100px-Non-EU-section-with-UA-2015.png);
+  background-size: 12px 3vh;
+  background-repeat: no-repeat;
+  background-position: left;
+  padding: 0 5px 0 17px;
+  left: 0;
+}
+.reports-container .car-number p{
+  line-height: 2.9vh;
+  margin: 0;
+  font-size: 1em;
+  display: block;
+  padding: 0;
+}

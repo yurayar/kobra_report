@@ -1,0 +1,21 @@
+!!! 5
+%html
+  %head
+    %title= 'KobRep'
+    = csrf_meta_tags
+    = tag 'meta', {:name => "viewport", :content => "width=device-width, initial-scale=1, user-scalable=0"}, true
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    - if officer_signed_in?
+      %header
+        %a(href=root_path)
+          .site-logo
+            %img(src="http://kobra.ks.ua/wp-content/uploads/2015/12/Logo-Kobra-Site1.png")
+        .site-menu
+          = link_to 'Мои отчеты', reports_path(current_officer)
+          = link_to 'Автомобили', cars_path
+          %a(href="#")Создать новый отчет
+          - if officer_signed_in?
+            = link_to "Sign out", destroy_officer_session_path, :method => :delete, class: "logout"
+    = yield

@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*@import "bootstrap-sprockets";
+@import "bootstrap";*/
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+html{
+    width: 100vw;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+html body{
+    width: 100vw;
+    max-width: 100%;
+    margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p, input{
+  font-family: 'Helvetica Neue';
+  margin: 0;
+}
+a{
+  text-decoration: none;
+}
+div{
+  box-sizing: border-box;
+}
+header{
+    width: 100vw;
+    height: 8vh;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.29);
+    padding: 0 5vw;
+    position: relative;
+    box-sizing: border-box;
+}
+header .site-logo{
+    width: 7vw;
+    height: 100%;
+    float: left;
+}
+.site-logo img{
+    width: 100%;
+    height: auto;
+}
+header .site-menu{
+    width: 81vw;
+    height: 100%;
+    float: left;
+    margin-left: 2vw;
+}
+.site-menu a{
+    line-height: 8vh;
+    text-decoration: none;
+    font-size: 1.1em;
+    margin: 0 1vw;
+}
+.site-menu a.logout{
+    float: right;
+    margin: 0;
+}

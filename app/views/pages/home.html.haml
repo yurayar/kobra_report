@@ -1,0 +1,67 @@
+.container
+  - @cars.each do |f|
+    .card
+      .car-image
+        .car-number
+          .flag
+          %p= f.legal_num
+        .car-location
+          %p
+            %i(class="fa fa-map-marker")
+            = f.car_base
+      .car-info
+        %p(class="call-num")
+          = f.call_num
+        %h4= f.name
+        %p
+          %i(class="fa fa-tachometer")
+          = "#{f.mileage} км"
+      - if Report.find_by "created_at >= ? and car_id = #{f.id}", Time.zone.now.beginning_of_day
+        .car-report-form
+          %span(class="show-report")
+            %i(class="fa fa-flag")
+            = link_to 'Просмотреть', report_path(Report.find_by "created_at >= ? and car_id = #{f.id}", Time.zone.now.beginning_of_day)
+      - else
+        .car-report-form
+          %span(class="show-form")
+            %i(class="fa fa-pie-chart")
+            Создать отчет
+          = simple_form_for(@report) do |g|
+            - if @report.errors.any?
+              #error_explanation
+                %h2= "#{pluralize(@report.errors.count, "error")} prohibited this report from being saved:"
+                %ul
+                  - @report.errors.full_messages.each do |msg|
+                    %li= msg
+            .field
+              = g.hidden_field :author_id, :value => @author.id
+            .field
+              = g.hidden_field :car_id, :value => f.id
+            .field
+              = g.date_field :report_date, as: :datepicker, :value => Date.today.strftime("%Y-%m-%d")
+            .field
+              = g.label :mileage_before
+              = g.number_field :mileage_before, placeholder: "Пробег перед сменой"
+            .field
+              = g.label :mileage_after
+              = g.number_field :mileage_after, placeholder: "Пробег после смены"
+            .field
+              = g.label :mileage_day
+              = g.number_field :mileage_day, placeholder: "Пробег за смену"
+            .field
+              = g.label :mileage_board
+              = g.number_field :mileage_board, placeholder: "Пробег по бортовому журналу"
+            .field
+              = g.label :mileage_day_gps
+              = g.number_field :mileage_day_gps, placeholder: "Пробег за смену GPS"
+            .field
+              = g.label :max_speed
+              = g.number_field :max_speed, placeholder: "Максимальная скорость"
+            .field
+              = g.label :fuel_spend
+              = g.number_field :fuel_spend, placeholder: "Потрачено топлива"
+            .field
+              = g.label :fuel_income
+              = g.text_field :fuel_income, placeholder: "Заправлено топлива"
+            .actions
+              = g.submit 'Готово'

@@ -1,0 +1,10 @@
+.sign-in-page
+  .sign-in-form
+    .page-logo
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-inputs
+        %pДоступ к системе
+        = f.text_field :email, required: false, autofocus: true, placeholder: "Ваш Email"
+        = f.password_field :password, required: false, placeholder: "Ваш пароль", class: "password"
+        .actions
+          = f.button :submit, "Войти"

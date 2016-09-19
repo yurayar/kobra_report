@@ -1,0 +1,72 @@
+.sign-in-page{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 15vh 0;
+  background: #263238;
+}
+.sign-in-page .sign-in-form{
+  width: 30vw;
+  height: 50vh;
+  background: #F5F5F5;
+  display: table;
+  padding: 5vh 0;
+}
+.sign-in-form .page-logo {
+  width: 30vw;
+  height: 200px;
+  background-image: url(http://kobra.ks.ua/wp-content/uploads/2015/12/Logo-Kobra-Site1.png);
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sign-in-form .form-inputs{
+  padding: 5vh 4vw 0 4vw;
+}
+.sign-in-form .form-inputs p{
+  text-align: center;
+  margin-bottom: 3vh;
+  font-size: 1.5em;
+  color: black;
+}
+.sign-in-form .form-inputs input{
+  width: 22vw;
+  height: 7vh;
+  line-height: 7vh;
+  outline: none;
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.17);
+  border-radius: 5px;
+  padding: 0 2vw;
+  box-sizing: border-box;
+  font-size: 1.3em;
+  margin: 1vh 0;
+}
+.sign-in-form .form-inputs input.password{
+  -webkit-text-security: disc;
+}
+.sign-in-form .form-inputs ::-webkit-input-placeholder{
+  color: black;
+}
+.sign-in-form .actions input{
+  width: 100%;
+  line-height: 6vh;
+  background: #70c050;
+  border: 1px solid #70c050;
+  border-radius: 5px;
+  font-size: 1.5em;
+  color: white;
+  margin-top: 1vh;
+  cursor: pointer;
+  font-weight: 300;
+  -webkit-appearance: none;
+  transition: all 0.3s ease;
+}
+.sign-in-form .actions input[type="submit"]:hover{
+  background: transparent;
+  color: #70c050;
+  border-color: #70c050;
+}

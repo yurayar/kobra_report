@@ -1,0 +1,33 @@
+= simple_form_for(@report) do |f|
+  - if @report.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@report.errors.count, "error")} prohibited this report from being saved:"
+      %ul
+        - @report.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    %p= @author.id
+    = f.hidden_field :author_id, :value => @author.id
+  .field
+    = f.association :car, label_method: :legal_num, value_method: :id, include_blank: false
+  .field
+    = f.label :mileage_before
+    = f.number_field :mileage_before
+  .field
+    = f.label :mileage_after
+    = f.number_field :mileage_after
+  .field
+    = f.label :mileage_day
+    = f.number_field :mileage_day
+  .field
+    = f.label :mileage_day_gps
+    = f.number_field :mileage_day_gps
+  .field
+    = f.label :fuel_spend
+    = f.number_field :fuel_spend
+  .field
+    = f.label :fuel_income
+    = f.text_field :fuel_income
+  .actions
+    = f.submit 'Save'
