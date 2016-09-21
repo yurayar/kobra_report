@@ -57,6 +57,11 @@
               = g.text_field :fuel_income, placeholder: "Заправлено топлива"
             .complect
               .field
+                %p Радиостанции:
+                = g.number_field :radio_exist_quantity
+                %span из
+                = g.number_field :radio_quantity
+              .field
                 %p Видеорегистраторы:
                 = g.number_field :videorecorder_exist_quantity
                 %span из
