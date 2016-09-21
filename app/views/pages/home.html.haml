@@ -34,34 +34,68 @@
                   - @report.errors.full_messages.each do |msg|
                     %li= msg
             .field
-              = g.hidden_field :author_id, :value => @author.id
+              = g.hidden_field :officer_id, :value => @author.id
             .field
               = g.hidden_field :car_id, :value => f.id
             .field
               = g.date_field :report_date, as: :datepicker, :value => Date.today.strftime("%Y-%m-%d")
             .field
-              = g.label :mileage_before
               = g.number_field :mileage_before, placeholder: "Пробег перед сменой"
             .field
-              = g.label :mileage_after
               = g.number_field :mileage_after, placeholder: "Пробег после смены"
             .field
-              = g.label :mileage_day
               = g.number_field :mileage_day, placeholder: "Пробег за смену"
             .field
-              = g.label :mileage_board
               = g.number_field :mileage_board, placeholder: "Пробег по бортовому журналу"
             .field
-              = g.label :mileage_day_gps
               = g.number_field :mileage_day_gps, placeholder: "Пробег за смену GPS"
             .field
-              = g.label :max_speed
               = g.number_field :max_speed, placeholder: "Максимальная скорость"
             .field
-              = g.label :fuel_spend
               = g.number_field :fuel_spend, placeholder: "Потрачено топлива"
             .field
-              = g.label :fuel_income
               = g.text_field :fuel_income, placeholder: "Заправлено топлива"
+            .complect
+              .field
+                %p Радиостанции:
+                = g.number_field :radio_exist_quantity
+                %span из
+                = g.number_field :radio_quantity
+              .field
+                %p Видеорегистраторы:
+                = g.number_field :videorecorder_exist_quantity
+                %span из
+                = g.number_field :videorecorder_quantity
+              .field
+                %p Бронежилеты:
+                = g.number_field :armor_exist_quantity
+                %span из
+                = g.number_field :armor_quantity
+              .field
+                %p Каски:
+                = g.number_field :helmet_exist_quantity
+                %span из
+                = g.number_field :helmet_quantity
+              .field
+                %p Планшет
+                = g.input :tablet_exist, :as => :boolean
+              .field
+                %p Палки резиновые:
+                = g.number_field :baton_exist
+                %span из
+                = g.number_field :baton_quantity
+              .field
+                %p Пистолеты:
+                = g.number_field :pistol_exist
+                %span из
+                = g.number_field :pistol_quantity
+              .field
+                %p Автоматы:
+                = g.number_field :machine_gun_exist
+                %span из
+                = g.number_field :machine_gun_quantity
+              .field
+                %p Наличие комплекта (огнетушитель, знак, аптечка)
+                = g.input :car_kit, :as => :boolean
             .actions
               = g.submit 'Готово'

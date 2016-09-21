@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    @reports = Report.order(created_at: :desc)
     @cars = Car.all
   end
 
@@ -73,6 +73,6 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:author_id, :car_id, :mileage_before, :mileage_after, :mileage_day, :mileage_day_gps, :fuel_spend, :fuel_income, :gps_difference, :mileage_board, :max_speed, :mileage_match, :fuel_difference, :overspeed, :report_date)
+      params.require(:report).permit(:author_id, :car_id, :mileage_before, :mileage_after, :mileage_day, :mileage_day_gps, :fuel_spend, :fuel_income, :gps_difference, :mileage_board, :max_speed, :mileage_match, :fuel_difference, :overspeed, :report_date, :officer_id, :car_kit, :videorecorder_exist_quantity, :videorecorder_quantity, :tablet_exist, :armor_exist_quantity, :armor_quantity, :helmet_exist_quantity, :helmet_quantity, :radio_exist_quantity, :radio_quantity, :baton_exist, :baton_quantity, :pistol_exist, :pistol_quantity, :machine_gun_exist, :machine_gun_quantity)
     end
 end

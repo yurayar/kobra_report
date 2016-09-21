@@ -6,7 +6,7 @@
   padding: 10vh 5vw;
 }
 .report{
-  margin: 2vh 0;
+  margin: 3vh 0;
   border: 1px solid #EFEFEF;
   border-radius: 5px;
 }
@@ -103,4 +103,23 @@
   font-size: 1em;
   display: block;
   padding: 0;
+}
+.reports-sub-footer{
+  width: 100%;
+  min-height: 7vh;
+  height: auto;
+  background: #FAFAFA;
+  padding: 2vh 2vw;
+}
+.reports-sub-footer p{
+  line-height: 5vh;
+  font-size: 1.2em;
+  margin: 0 1vw;
+  display: inline;
+}
+.reports-sub-footer p.ok{
+  color: #088002;
+}
+.reports-sub-footer p.wrong{
+  color: #F44336;
 }

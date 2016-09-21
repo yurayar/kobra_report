@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918193202) do
+ActiveRecord::Schema.define(version: 20160920191000) do
 
   create_table "cars", force: :cascade do |t|
     t.string   "name"
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20160918193202) do
     t.integer  "mileage_day_gps"
     t.integer  "fuel_spend"
     t.float    "fuel_income"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "gps_difference"
     t.integer  "mileage_board"
     t.float    "max_speed"
@@ -58,6 +58,23 @@ ActiveRecord::Schema.define(version: 20160918193202) do
     t.float    "fuel_difference"
     t.integer  "overspeed"
     t.date     "report_date"
+    t.integer  "officer_id"
+    t.integer  "videorecorder_exist_quantity"
+    t.integer  "videorecorder_quantity"
+    t.boolean  "tablet_exist"
+    t.integer  "armor_exist_quantity"
+    t.integer  "armor_quantity"
+    t.integer  "helmet_exist_quantity"
+    t.integer  "helmet_quantity"
+    t.integer  "radio_exist_quantity"
+    t.integer  "radio_quantity"
+    t.integer  "pistol_exist"
+    t.integer  "pistol_quantity"
+    t.integer  "machine_gun_exist"
+    t.integer  "machine_gun_quantity"
+    t.integer  "baton_exist"
+    t.integer  "baton_quantity"
+    t.boolean  "car_kit"
   end
 
 end

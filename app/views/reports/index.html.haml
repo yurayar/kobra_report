@@ -31,32 +31,147 @@
         %p
           %i(class="fa fa-calendar")
           = report.report_date.strftime("%d.%m.%Y")
+        %p
+          Офицер:
+          = report.officer.name
+        = link_to 'Destroy', report, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      .reports-sub-footer
+        %pПередвижение автомобиля:
+        %br
         - if report.mileage_match == true
-          %p(class="mileage-match")
+          %p(class="mileage-match ok")
             %i(class="fa fa-check")
             Пробег соответствует
         - else
-          %p(class="mileage-different")
+          %p(class="mileage-different wrong")
             %i(class="fa fa-times")
             Пробег не соответствует
         - if report.fuel_difference > 0
-          %p(class="fuel-different")
+          %p(class="fuel-different wrong")
             %i(class="fa fa-tint")
             Заправлено на
             = report.fuel_difference
             л больше
         - else
-          %p(class="fuel-match")
+          %p(class="fuel-match ok")
             %i(class="fa fa-tint")
             Расход топлива соответствует
         - if report.overspeed
-          %p(class="overspeed")
+          %p(class="overspeed wrong")
             %i(class="fa fa-tachometer")
             Превышение скорости на
             = report.overspeed
             км/ч
         - else
-          %p(class="normal-speed")
+          %p(class="normal-speed ok")
             %i(class="fa fa-tachometer")
             Скорость не превышена
-        = link_to 'Destroy', report, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %br
+        %pУкопмлектованость экипажа:
+        %br
+        - if report.radio_exist_quantity == report.radio_quantity
+          %p(class="ok")
+            %i(class="fa fa-check")
+            Радиостанции:
+            = report.radio_exist_quantity
+            из
+            = report.radio_quantity
+        - else
+          %p(class="wrong")
+            %i(class="fa fa-times")
+            Радиостанции:
+            = report.radio_exist_quantity
+            из
+            = report.radio_quantity
+        - if report.videorecorder_exist_quantity == report.videorecorder_quantity
+          %p(class="ok")
+            %i(class="fa fa-check")
+            Видеорегистраторы:
+            = report.videorecorder_exist_quantity
+            из
+            = report.videorecorder_quantity
+        - else
+          %p(class="wrong")
+            %i(class="fa fa-times")
+            Видеорегистраторы:
+            = report.videorecorder_exist_quantity
+            из
+            = report.videorecorder_quantity
+        - if report.armor_exist_quantity == report.armor_quantity
+          %p(class="ok")
+            %i(class="fa fa-check")
+            Бронежилеты:
+            = report.armor_exist_quantity
+            из
+            = report.armor_quantity
+        - else
+          %p(class="wrong")
+            %i(class="fa fa-check")
+            Бронежилеты:
+            = report.armor_exist_quantity
+            из
+            = report.armor_quantity
+        - if report.helmet_exist_quantity == report.helmet_quantity
+          %p(class="ok")
+            %i(class="fa fa-check")
+            Каски:
+            = report.helmet_exist_quantity
+            из
+            = report.helmet_quantity
+        - else
+          %p(class="wrong")
+            %i(class="fa fa-times")
+            Каски:
+            = report.helmet_exist_quantity
+            из
+            = report.helmet_quantity
+        - if report.baton_exist == report.baton_quantity
+          %p(class="ok")
+            %i(class="fa fa-check")
+            Палки резиновые:
+            = report.baton_exist
+            из
+            = report.baton_quantity
+        - else
+          %p(class="wrong")
+            %i(class="fa fa-times")
+            Палки резиновые:
+            = report.baton_exist
+            из
+            = report.baton_quantity
+        - if report.pistol_exist == report.pistol_quantity
+          %p(class="ok")
+            %i(class="fa fa-check")
+            Пистолеты:
+            = report.pistol_exist
+            из
+            = report.pistol_quantity
+        - else
+          %p(class="wrong")
+            %i(class="fa fa-times")
+            Пистолеты:
+            = report.pistol_exist
+            из
+            = report.pistol_quantity
+        - if report.machine_gun_exist == report.machine_gun_quantity
+          %p(class="ok")
+            %i(class="fa fa-check")
+            Автоматы:
+            = report.machine_gun_exist
+            из
+            = report.machine_gun_quantity
+        - else
+          %p(class="wrong")
+            %i(class="fa fa-times")
+            Автоматы:
+            = report.machine_gun_exist
+            из
+            = report.machine_gun_quantity
+        - if report.car_kit == true
+          %p(class="ok")
+            %i(class="fa fa-check")
+            Комплект (огнетушитель, знак, аптечка) присутствует
+        - else
+          %p(class="wrong")
+            %i(class="fa fa-times")
+            Комплект (огнетушитель, знак, аптечка) отсутствует

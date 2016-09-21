@@ -1,6 +1,6 @@
 class Report < ApplicationRecord
-  belongs_to :car
   belongs_to :officer
+  belongs_to :car
 
   after_create :count_dif
   after_create :check_data
