@@ -15,7 +15,7 @@
 //= require jquery-ui/datepicker
 //= require_tree .
 
-$(document).on('turbolinks:load', function(){
+$(document).ready(function(){
     $('.card .show-form').click(function () {
         $(this).parent('.car-report-button').children('.report-form-wrapper').show();
     });
