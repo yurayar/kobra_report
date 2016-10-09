@@ -1,3 +1,8 @@
+.reports-search-form
+  = search_form_for @q do |q|
+    %pПоиск рапорта по дате:
+    = q.search_field :report_date_eq, class: "reports-search-field"
+    = q.submit "Найти рапорт"
 .reports-container
   - @reports.each do |report|
     .report
@@ -25,6 +30,7 @@
             %td= "#{report.max_speed} км/ч"
             %td= "#{report.fuel_spend} л"
             %td= "#{report.fuel_income} л"
+            %td= report.id
       .reports-footer
         .car-number
           %p= Car.find_by(:id => report.car_id).legal_num

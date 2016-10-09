@@ -1,14 +1,62 @@
 // Place all the styles related to the reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.reports-container{
+$appGreen: #70c050;
+.reports-search-form{
   width: 100vw;
   padding: 10vh 5vw;
+  background: #EEEEEE;
+  display: flex;
+  justify-content: center;
+
+  .reports-search-field{
+    width: 250px;
+    height: 6vh;
+    line-height: 6vh;
+    padding: 0 3vw;
+    background: white;
+    -webkit-appearance: none;
+    box-shadow: none;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    outline: none;
+    font-size: 1.5em;
+  }
+  input[type="submit"]{
+    width: 250px;
+    line-height: 6vh;
+    padding: 0 3vw;
+    margin: 0 1vw;
+    border: none;
+    border-radius: 5px;
+    background: #4ec019;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    float: right;
+    font-weight: 300;
+    &:hover {
+      background: $appGreen;
+    }
+  }
+
+  p{
+    text-align: center;
+    margin-bottom: 4vh;
+    line-height: 6vh;
+    font-size: 3em;
+    font-weight: 300;
+  }
+}
+.reports-container{
+  width: 100vw;
+  padding: 5vh 5vw;
 }
 .report{
   margin: 3vh 0;
   border: 1px solid #EFEFEF;
   border-radius: 5px;
+  background: white;
 }
 .reports-table{
   width: 100%;

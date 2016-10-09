@@ -1,6 +1,7 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$appGreen: #70c050;
 .container{
   display: flex;
   padding: 7vh 1.5vw;
@@ -9,26 +10,19 @@
   align-items: flex-start;
 }
 .card{
-  width: 24vw;
+  width: 22vw;
   height: auto;
-  margin: 0 0.7vw 2vh 0;
+  margin: 0 0.5vw 2vh 0.5vw;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
 }
 .car-image{
   width: 100%;
   height: 25vh;
-  background-image: url(https://www.cdn.renault.com/content/dam/Renault/RU/personal-cars/logan/l52-logan/l52-phase1/features/New-logan-suspension-bracket.jpg.ximg.l_full_m.smart.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-}
-.card:nth-child(2) .car-image{
-  background-image: url(https://www.cdn.renault.com/content/dam/Renault/RU/personal-cars/logan/l52-logan/l52-phase1/features/New-logan-suspension-bracket.jpg.ximg.l_full_m.smart.jpg);
-}
-.card:nth-child(3) .car-image{
-  background-image: url(https://www.cdn.renault.com/content/dam/Renault/RU/personal-cars/logan/l52-logan/l52-phase1/features/New-logan-suspension-bracket.jpg.ximg.l_full_m.smart.jpg);
 }
 .car-number{
   width: auto;
@@ -68,7 +62,7 @@
   position: relative;
 }
 .car-info p{
-  font-size: 1.3em;
+  font-size: 1.2em;
   display: inline-block;
   margin: 0 1vw;
   font-weight: 300;
@@ -83,42 +77,39 @@
   font-size: 2em;
   margin: 0;
   color: black;
-  border: 1px solid #70c050;
+  border: 1px solid $appGreen;
   position: absolute;
   left: 3vw;
 }
 .car-info h4{
-  font-size: 1.5em;
+  font-size: 1.4em;
   margin: 0 1vw 0.7vh 1vw;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 2.5vw;
 }
-.car-report-form{
+.car-report-button{
   padding: 1vh 3vw 4vh 3vw;
   text-align: center;
 }
-.car-report-form form{
-  display: none;
-}
-.car-report-form .show-form{
+.car-report-button .show-form{
   text-align: center;
   display: inline-block;
   padding: 0 3vw;
-  background: #70c050;
-  border: 1px solid #70c050;
+  background: $appGreen;
+  border: 1px solid $appGreen;
   color: white;
   line-height: 7vh;
-  font-size: 1.4em;
+  font-size: 1.2em;
   border-radius: 50px;
   font-weight: 300;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.car-report-form .show-form:hover{
+.car-report-button .show-form:hover{
   background: transparent;
-  color: #70c050;
+  color: $appGreen;
 }
-.car-report-form .show-report{
+.car-report-button .show-report{
   text-align: center;
   display: inline-block;
   padding: 0 3vw;
@@ -126,20 +117,125 @@
   border: 1px solid #FF5722;
   color: white;
   line-height: 7vh;
-  font-size: 1.4em;
+  font-size: 1.2em;
   border-radius: 50px;
   font-weight: 300;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.car-report-form .show-report:hover{
+.car-report-button .show-report:hover{
   background: transparent;
   color: #FF5722;
 }
-.car-report-form p{
+.report-form-wrapper{
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.62);
+  display: none;
+  padding: 5vh 20vw;
+  transition: all 0.5s ease;
+}
+.car-report-form{
+  width: 60vw;
+  padding: 0;
   text-align: center;
+  background: #F5F5F5;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+}
+.car-report-form .close-form{
+  position: absolute;
+  top: 0;
+  right: 3vw;
+  line-height: 12vh;
+  font-size: 2.2em;
+  cursor: pointer;
+  color: #4c4c4c;
+}
+.car-report-form .report-form-header{
+  width: 100%;
+  height: 12vh;
+  background: #EEEEEE;
+  padding: 2vh 3vw;
+}
+.report-form-header p{
+  float: left;
+  line-height: 8vh;
+  font-size: 1.4em;
+  margin: 0 1vw;
+}
+.report-form-header p i{
+  margin-right: 0.5vw;
   font-size: 1.3em;
-  margin: 1vh 0 2vh 0;
+}
+.report-form-header p.call-num{
+  width: 8vh;
+  text-align: center;
+  background: $appGreen;
+  border-radius: 100%;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  font-size: 2em;
+  margin: 0 1vw 0 0;
+  color: white;
+  border: 3px solid white;
+}
+.report-info-header{
+  height: 7vh;
+  background: whitesmoke;
+  text-align: left;
+  padding: 0 3vw;
+
+  p{
+    line-height: 7vh;
+    display: inline-block;
+    margin: 0 1vw;
+    font-size: 1.3em;
+  }
+  p i{
+    font-size: 1.2em;
+    margin-right: 0.5vw;
+  }
+  .report-date{
+    display: inline-block;
+  }
+  .report-date i{
+    font-size: 1.5em;
+    margin-right: 0.5vw;
+  }
+  .report-date input{
+    width: 90px;
+    line-height: 7vh;
+    font-size: 1.3em;
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+}
+.car-report-form .col-car-data{
+  padding: 2vh 2vw;
+  background: #EEEEEE;
+  display: table;
+}
+.car-report-form .col-car-data .field{
+  width: 30%;
+  float: left;
+  margin: 0 1.66%;
+}
+.car-report-form .col-header{
+  width: 100%;
+  background: white;
+  text-align: left;
+  padding: 0 2vw;
+}
+.car-report-form .col-header p{
+  line-height: 5vh;
+  font-size: 1.2em;
+}
+.car-report-form p{
 }
 .car-report-form .field{
   width: 100%;
@@ -151,30 +247,41 @@
   outline: none;
   -webkit-appearance: none;
   box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.17);
+  border: 2px solid transparent;
   border-radius: 5px;
   padding: 0 2vw;
   box-sizing: border-box;
   font-size: 1.1em;
   margin: 1vh 0;
+  transition: all 0.2s ease;
 }
 .car-report-form .field input:focus{
-  border: 1px solid rgba(0, 0, 0, 0.37);
+  border: 2px solid rgba(0, 0, 0, 0.2);
 }
-.car-report-form .field label{
-  font-size: 10px;
-  display: none;
+.car-report-form .col-car-kit{
+  padding: 4vh 2vw 2vh;
+  background: #EEEEEE;
+  display: table;
 }
-.car-report-form .complect p{
+.car-report-form .col-car-kit .field{
+  width: 30%;
+  float: left;
+  margin: 0 1.66% 2vh;
+}
+.car-report-form .col-car-kit .field input[type="number"]{
+  line-height: 4vh;
+  height: 4vh;
+  transition: all 0.2s ease;
+}
+.car-report-form .col-car-kit p{
   font-size: 1.1em;
+  margin: 0 0 1.5vh 0;
 }
-.car-report-form .complect .field{
-  margin: 2vh 0;
-}
-.car-report-form .complect .field label{
+.car-report-form .col.car-kit .field label{
   display: block;
+  margin-bottom: 1vh;
 }
-.car-report-form .complect .field input{
+.car-report-form .col-car-kit .field input[type="number"]{
   width: 30%;
   display: inline-block;
   margin: 0 0.5vw;
@@ -183,19 +290,33 @@
 .car-report-form ::-webkit-input-placeholder{
   color: black;
 }
-.car-report-form .actions{
+.car-report-form .report-form-footer{
   width: 100%;
+  height: 10vh;
+  background: white;
+  text-align: left;
+  padding: 0 3vw;
+}
+.car-report-form .report-form-footer p{
+  display: inline-block;
+  text-align: left;
+  font-size: 1.3em;
+  line-height: 10vh;
+}
+.car-report-form .actions{
   text-align: center;
+  float: right;
 }
 .car-report-form .actions input{
-  width: 100%;
+  width: auto;
   line-height: 6vh;
-  background: #70c050;
-  border: 1px solid #70c050;
-  border-radius: 10px;
-  font-size: 1.5em;
+  background: $appGreen;
+  border: 1px solid $appGreen;
+  border-radius: 7px;
+  font-size: 1.3em;
   color: white;
-  margin-top: 1vh;
+  margin-top: 2vh;
+  padding: 0 3vw;
   cursor: pointer;
   font-weight: 300;
   -webkit-appearance: none;
@@ -203,14 +324,60 @@
 }
 .car-report-form .actions input[type="submit"]:hover{
   background: transparent;
-  color: #28b658;
+  color: $appGreen;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
+input::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
+input::-webkit-clear-button{
+  display: none;
+}
+.report-checkbox {
+  height: 50px;
+  input:not(checked) {
+      position: absolute;
+      opacity: 0;
+    }
+  input:not(checked) + label {
+      position: relative;
+      padding: 0 0 0 80px;
+      left: 80px;
+  }
+  input:not(checked) + label:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 40px;
+    border-radius: 50px;
+    background: white;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.47);
+  }
+  input:not(checked) + label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 36px;
+    height: 36px;
+    border-radius: 40px;
+    background: #FFF;
+    box-shadow: 0 2px 5px rgba(0,0,0,.3);
+    transition: all .2s;
+  }
+  input:checked + label:before {
+    background: $appGreen;
+  }
+  input:checked + label:after {
+    left: 42px;
+  }
+}
 @media only screen and (min-width: 1200px) and (min-height: 1000px) and (max-width: 1300px){
   .container .card{
     width: 28vw;

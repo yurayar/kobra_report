@@ -7,6 +7,8 @@ class ReportsController < ApplicationController
   def index
     @reports = Report.order(created_at: :desc)
     @cars = Car.all
+    @q = Report.ransack(params[:q])
+    @reports = @q.result(distinct: true)
   end
 
   # GET /reports/1

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @cars = Car.order('id DeSC')
+    @cars = Car.order('id ASC')
     @reports = Report.all
     @report = Report.new
     @author = current_officer

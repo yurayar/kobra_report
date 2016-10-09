@@ -13,11 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery-ui/datepicker
 //= require_tree .
 
-$(document).ready(function(){
-    $('.card .show-form').click(function(){
-        $(this).hide();
-        $(this).parent('.car-report-form').children('form').show();
+$(document).on('turbolinks:load', function(){
+    $('.card .show-form').click(function () {
+        $(this).parent('.car-report-button').children('.report-form-wrapper').show();
     });
+    $('.report-date input').datepicker({
+        dateFormat: "dd/mm/yy",
+        defaultDate: 0
+    });
+    $('.report-date input').datepicker("setDate", new Date());
+    $('.car-report-form .close-form').click(function(){
+        $(this).parent('.car-report-form').parent('.report-form-wrapper').hide();
+    });
+    $('.reports-search-field').datepicker({
+        dateFormat: "dd/mm/yy",
+        defaultDate: 0
+    });
+    $('.reports-search-field').datepicker("setDate", new Date());
 });
