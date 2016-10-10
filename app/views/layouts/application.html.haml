@@ -13,9 +13,12 @@
           .site-logo
             %img(src="http://kobra.ks.ua/wp-content/uploads/2015/12/Logo-Kobra-Site1.png")
         .site-menu
-          = link_to 'Мои отчеты', reports_path(current_officer)
+          = link_to 'Новый рапорт', root_path
+          = link_to 'Все рапорты', reports_path
           = link_to 'Автомобили', cars_path
-          %a(href="#")Создать новый отчет
           - if officer_signed_in?
-            = link_to "Sign out", destroy_officer_session_path, :method => :delete, class: "logout"
+            = link_to(destroy_officer_session_path, :method => :delete, class: "logout") do
+              %p
+                Выйти
+                %i(class="fa fa-sign-out")
     = yield

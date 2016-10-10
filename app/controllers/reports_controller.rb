@@ -5,10 +5,10 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.order(created_at: :desc)
+    @reports = Report.all
     @cars = Car.all
     @q = Report.ransack(params[:q])
-    @reports = @q.result(distinct: true)
+    @reports = @q.result.includes(:car)
   end
 
   # GET /reports/1
@@ -34,7 +34,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
+        format.html { redirect_to reports_path, notice: 'Report was successfully created.' }
         format.json { render :show, status: :created, location: @report }
       else
         format.html { render :new }

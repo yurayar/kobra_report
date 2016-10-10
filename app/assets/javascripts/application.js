@@ -31,5 +31,4 @@ $(document).ready(function(){
         dateFormat: "dd/mm/yy",
         defaultDate: 0
     });
-    $('.reports-search-field').datepicker("setDate", new Date());
 });

@@ -9,7 +9,7 @@ $appGreen: #70c050;
   display: flex;
   justify-content: center;
 
-  .reports-search-field{
+  input{
     width: 250px;
     height: 6vh;
     line-height: 6vh;
@@ -20,18 +20,18 @@ $appGreen: #70c050;
     border-radius: 5px;
     border: 2px solid transparent;
     outline: none;
-    font-size: 1.5em;
+    font-size: 1.4em;
+    margin: 0 0.5vw;
   }
   input[type="submit"]{
     width: 250px;
     line-height: 6vh;
     padding: 0 3vw;
-    margin: 0 1vw;
     border: none;
     border-radius: 5px;
     background: #4ec019;
     color: white;
-    font-size: 1.5em;
+    font-size: 1.4em;
     cursor: pointer;
     float: right;
     font-weight: 300;
@@ -39,10 +39,13 @@ $appGreen: #70c050;
       background: $appGreen;
     }
   }
+  input::-webkit-input-placeholder{
+    color: #848484;
+  }
 
   p{
     text-align: center;
-    margin-bottom: 4vh;
+    margin-bottom: 5vh;
     line-height: 6vh;
     font-size: 3em;
     font-weight: 300;
