@@ -1,7 +1,7 @@
 .container
   - @cars.each do |f|
     .card
-      .car-image(style="background-image:url(#{f.car_photo});")
+      .car-image(style="background-image:url(#{f.car_photo.url});")
         .car-number
           .flag
           %p= f.legal_num

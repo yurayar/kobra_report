@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dbyqfamwg
+  api_key: '957865156487771'
+  api_secret: 13wCI0yP0BnQTMYmApk8tRc3yJA
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dbyqfamwg
+  api_key: '957865156487771'
+  api_secret: 13wCI0yP0BnQTMYmApk8tRc3yJA
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dbyqfamwg
+  api_key: '957865156487771'
+  api_secret: 13wCI0yP0BnQTMYmApk8tRc3yJA
+  enhance_image_tag: true
+  static_image_support: false
