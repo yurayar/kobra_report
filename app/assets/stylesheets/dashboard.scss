@@ -51,4 +51,36 @@
       }
     }
   }
+  .officer-form{
+    padding: 2vh 2vw;
+    input{
+      width: 100%;
+      height: 6vh;
+      line-height: 6vh;
+      font-size: 1.3em;
+      padding: 0 2vw;
+      margin-bottom: 2vh;
+      outline: none;
+      box-sizing: border-box;
+      border: 1px solid #dcdcdc;
+      border-radius: 5px;
+    }
+    input[type="submit"]{
+      line-height: 6vh;
+      color: white;
+      background: #4ec019;
+      border: 1px solid #4ec019;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover{
+        color: #4ec019;
+        background: transparent;
+      }
+    }
+    ::-webkit-input-placeholder{
+      color: #333333;
+    }
+  }
 }

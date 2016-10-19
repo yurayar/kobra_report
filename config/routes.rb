@@ -5,6 +5,14 @@ Rails.application.routes.draw do
   get '/dashboard' => 'dashboard#index'
 
   devise_for :officers
+  devise_scope :officer do
+    get  'officer/new' => 'officer#new'
+    post 'officer/new' => 'officer#create'
+  end
+  resources :officer, :controller => 'officer'
+  scope '/dashboard' do
+    resources :officer
+  end
   resources :reports
   resources :cars
 

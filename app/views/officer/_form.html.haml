@@ -1,0 +1,4 @@
+= simple_form_for @officer, url: new_officer_url(@officer) do |o|
+  = o.text_field :email
+  = o.text_field :password
+  = o.submit 'Save'

@@ -16,6 +16,8 @@
           = link_to 'Новый рапорт', root_path
           = link_to 'Все рапорты', reports_path
           = link_to 'Автомобили', cars_path
+          - if current_officer.admin?
+            = link_to 'Панель управления', '/dashboard'
           - if officer_signed_in?
             = link_to(destroy_officer_session_path, :method => :delete, class: "logout") do
               %p
