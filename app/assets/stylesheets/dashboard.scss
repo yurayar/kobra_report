@@ -1,0 +1,54 @@
+// Place all the styles related to the Dashboard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.dashboard-wrapper{
+  display: table;
+  .dashboard-header{
+    width: 100vw;
+    padding: 15vh 5vw;
+    background: #EEEEEE;
+  }
+  .dashboard-content{
+    width: 100vw;
+    padding: 5vh 5vw;
+    display: table;
+
+    .dash-card{
+      min-width: 30vw;
+      min-height: 20vh;
+      float: left;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      border-radius: 5px;
+      margin: 0 1vw;
+
+      .header{
+        padding: 3vh 3vw;
+        font-size: 1.4em;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        background: white;
+      }
+
+      .body {
+        background: #FAFAFA;
+
+        .card-item {
+          padding: 2vh 2vw;
+          background: white;
+
+          p {
+            font-size: 1.2em;
+            display: inline-block;
+            padding: 0 0.5vw;
+
+            i{
+              margin-right: 0.2vw;
+            }
+          }
+        }
+        .card-item:nth-child(odd){
+          background: #F5F5F5;
+        }
+      }
+    }
+  }
+}

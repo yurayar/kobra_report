@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008135618) do
+ActiveRecord::Schema.define(version: 20161019102732) do
 
   create_table "cars", force: :cascade do |t|
     t.string   "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20161008135618) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "username"
     t.index ["email"], name: "index_officers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_officers_on_reset_password_token", unique: true
   end
@@ -76,6 +77,21 @@ ActiveRecord::Schema.define(version: 20161008135618) do
     t.integer  "baton_exist"
     t.integer  "baton_quantity"
     t.boolean  "car_kit"
+  end
+
+  create_table "sign_ins", force: :cascade do |t|
+    t.datetime "sign_in_at"
+    t.string   "sign_in_ip"
+    t.string   "sign_in_officer"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "signins", force: :cascade do |t|
+    t.datetime "sign_in_at"
+    t.string   "sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

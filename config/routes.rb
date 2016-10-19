@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
   root 'pages#home'
+
+  get '/dashboard' => 'dashboard#index'
 
   devise_for :officers
   resources :reports
