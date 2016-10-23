@@ -7,6 +7,6 @@ class Officer < ApplicationRecord
   has_many :sign_ins
 
   def after_database_authentication
-      SignIn.create(:officer_id => self.id, :sign_in_at => DateTime.now, :sign_in_officer => self.name)
+      SignIn.create(:sign_in_at => DateTime.now, :sign_in_officer => self.name)
   end
 end
