@@ -6,7 +6,8 @@ class Officer < ApplicationRecord
   has_many :reports
   has_many :sign_ins
 
-  def after_database_authentication
-      SignIn.create(:sign_in_at => DateTime.now, :sign_in_officer => self.name)
+  after_save :create_sign, if: :current_sign_in_ip_changed?
+  def create_sign
+    SignIn.create(:sign_in_at => DateTime.now, :sign_in_officer => self.name)
   end
 end
