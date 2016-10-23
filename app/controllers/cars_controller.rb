@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_if_admin
   # GET /cars
   # GET /cars.json
   def index
@@ -70,5 +70,9 @@ class CarsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
       params.require(:car).permit(:name, :legal_num, :call_num, :mileage, :car_base, :car_photo)
+    end
+
+    def check_if_admin
+      redirect_to root_path unless current_officer.admin?
     end
 end
