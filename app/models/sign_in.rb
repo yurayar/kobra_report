@@ -3,7 +3,8 @@ class SignIn < ApplicationRecord
   before_save :set_attr
 
   def set_attr
-    self.officer_id = current_officer.id
-    self.sign_in_ip = Officer.find(self.officer.id).current_sign_in_ip.to_s
+    @officer = Officer.find_by(:name => self.sign_in_officer)
+    self.officer_id = @officer.id
+    self.sign_in_ip = @officer.current_sign_in_ip
   end
 end
