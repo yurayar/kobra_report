@@ -174,3 +174,52 @@ $appGreen: #70c050;
 .reports-sub-footer p.wrong{
   color: #F44336;
 }
+.report-edit-header {
+  width: 100vw;
+  padding: 10vh 5vw;
+  background: #EEEEEE;
+  display: flex;
+  justify-content: center;
+
+  p{
+    text-align: center;
+    margin-bottom: 5vh;
+    line-height: 6vh;
+    font-size: 3em;
+    font-weight: 300;
+    padding: 0 2vw 2vh 2vw;
+
+    span{
+      color: $appGreen;
+    }
+  }
+}
+.report-edit-container{
+  padding: 0 12.5vw;
+
+  .report-edit-form{
+    margin-top: -7vh;
+    .car-report-form{
+      width: 75vw;
+      border: 1px solid #e1e1e1;
+
+      .report-form-header{
+        background: #FAFAFA;
+
+        p.call-num{
+          box-shadow: 0 0 1px rgba(0,0,0,0.2);
+        }
+      }
+
+      .col-car-data .field {
+        width: 22%;
+        margin: 1vh 1.5%;
+        p {
+          font-size: 1.1em;
+          text-align: left;
+          padding-bottom: 1vh;
+        }
+      }
+    }
+  }
+}

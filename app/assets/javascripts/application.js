@@ -31,4 +31,5 @@ $(document).ready(function(){
         dateFormat: "dd/mm/yy",
         defaultDate: 0
     });
+    $('.report-form-wrapper').css({'min-height':($("body").height()+'px')})
 });

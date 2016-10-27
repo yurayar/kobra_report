@@ -25,6 +25,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/1/edit
   def edit
+    @car = Car.find(@report.car_id)
   end
 
   # POST /reports
@@ -52,7 +53,7 @@ class ReportsController < ApplicationController
   def update
     respond_to do |format|
       if @report.update(report_params)
-        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+        format.html { redirect_to reports_path, notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
       else
         format.html { render :edit }

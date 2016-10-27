@@ -7,9 +7,6 @@
           %li= msg
 
   .field
-    %p= @author.id
-    = f.hidden_field :officer_id, :value => @author.id
-  .field
     = f.association :car, label_method: :legal_num, value_method: :id, include_blank: false
   .field
     = f.label :mileage_before

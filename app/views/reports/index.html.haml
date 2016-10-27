@@ -44,7 +44,13 @@
         %p
           Офицер:
           = report.officer.name
-        = link_to 'Destroy', report, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %p
+          %i(class="fa fa-pencil")
+          = link_to 'Редактировать', edit_report_path(report)
+        - if current_officer.admin?
+          %p
+            %i(class="fa fa-trash")
+            = link_to 'Удалить', report, :method => :delete, :data => { :confirm => 'Are you sure?' }
       .reports-sub-footer
         %pПередвижение автомобиля:
         %br
