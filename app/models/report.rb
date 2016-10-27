@@ -2,10 +2,19 @@ class Report < ApplicationRecord
   belongs_to :officer
   belongs_to :car
 
+  validate :report_unique, on: :create
+
   after_create :count_dif
   after_create :check_data
   after_create :check_fuel
   after_create :check_speed
+
+
+  def report_unique
+    if Report.find_by(report_date: self.report_date, car_id: self.car_id)
+      errors.add(:report_date, "Рапорт по данному автомобилю уже присутствует в системе.")
+    end
+  end
 
   def count_dif
     gps_difference = (self.mileage_day - self.mileage_day_gps)
@@ -25,7 +34,7 @@ class Report < ApplicationRecord
     #Check fuel
     if self.fuel_income > self.fuel_spend
       fuel_difference = (self.fuel_income - self.fuel_spend.to_f)
-      self.update(:fuel_difference => fuel_difference)
+      self.update(:fuel_difference => fuel_difference.round(2))
     else
       self.update(:fuel_difference => 0)
     end

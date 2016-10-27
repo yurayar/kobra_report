@@ -127,3 +127,14 @@ body .ui-datepicker{
     color: white;
   }
 }
+.notice-message{
+  width: 100%;
+  padding: 3vh 5vw;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 1.1em;
+}
+.warning-message{
+  border-color: red;
+  color: red;
+}

@@ -12,123 +12,117 @@
         %p
           %i(class="fa fa-map-marker")
           = f.car_base
-      - if Report.find_by "created_at >= ? and car_id = #{f.id}", Time.zone.now.beginning_of_day
-        .car-report-button
-          %span(class="show-report")
-            %i(class="fa fa-flag")
-            = link_to 'Просмотреть', report_path(Report.find_by "created_at >= ? and car_id = #{f.id}", Time.zone.now.beginning_of_day)
-      - else
-        .car-report-button
-          %span(class="show-form")
-            %i(class="fa fa-pie-chart")
-            Создать отчет
-          .report-form-wrapper
-            .car-report-form
-              %i(class="fa fa-times close-form")
-              = simple_form_for(@report) do |g|
-                - if @report.errors.any?
-                  #error_explanation
-                    %h2= "#{pluralize(@report.errors.count, "error")} prohibited this report from being saved:"
-                    %ul
-                      - @report.errors.full_messages.each do |msg|
-                        %li= msg
-                .report-form-header
-                  %p(class="call-num")
-                    = f.call_num
+      .car-report-button
+        %span(class="show-form")
+          %i(class="fa fa-pie-chart")
+          Создать рапорт
+        .report-form-wrapper
+          .car-report-form
+            %i(class="fa fa-times close-form")
+            = simple_form_for(@report) do |g|
+              - if @report.errors.any?
+                #error_explanation
+                  %h2= "#{pluralize(@report.errors.count, "error")} prohibited this report from being saved:"
+                  %ul
+                    - @report.errors.full_messages.each do |msg|
+                      %li= msg
+              .report-form-header
+                %p(class="call-num")
+                  = f.call_num
+                %p
+                  %i(class="fa fa-car")
+                  = f.name
+                %p
+                  %i(class="fa fa-tags")
+                  = f.legal_num
+                %p
+                  %i(class="fa fa-map-marker")
+                  = f.car_base
+              .report-info-header
+                .report-date
+                  %i(class="fa fa-calendar")
+                  = g.text_field :report_date
+                %p
+                  %i(class="fa fa-shield")
+                  = "Дежурный офицер: #{current_officer.name}"
+              .col-header
+                %pДанные по пробегу:
+              .col-car-data
+                .field
+                  = g.hidden_field :officer_id, :value => @author.id
+                .field
+                  = g.hidden_field :car_id, :value => f.id
+                .field
+                  = g.number_field :mileage_before, placeholder: "Пробег перед сменой"
+                .field
+                  = g.number_field :mileage_after, placeholder: "Пробег после смены"
+                .field
+                  = g.number_field :mileage_day, placeholder: "Пробег за смену"
+                .field
+                  = g.number_field :mileage_board, placeholder: "Пробег по бортовому журналу"
+                .field
+                  = g.number_field :mileage_day_gps, placeholder: "Пробег за смену GPS"
+                .field
+                  = g.number_field :max_speed, placeholder: "Максимальная скорость"
+                .field
+                  = g.number_field :fuel_spend, placeholder: "Потрачено топлива"
+                .field
+                  = g.text_field :fuel_income, placeholder: "Заправлено топлива"
+              .col-header
+                %pУкомплектованность экипажа:
+              .col-car-kit
+                .field
+                  %p Радиостанции:
+                  = g.number_field :radio_exist_quantity
+                  %span из
+                  = g.number_field :radio_quantity
+                .field
+                  %p Видеорегистраторы:
+                  = g.number_field :videorecorder_exist_quantity
+                  %span из
+                  = g.number_field :videorecorder_quantity
+                .field
+                  %p Бронежилеты:
+                  = g.number_field :armor_exist_quantity
+                  %span из
+                  = g.number_field :armor_quantity
+                .field
+                  %p Каски:
+                  = g.number_field :helmet_exist_quantity
+                  %span из
+                  = g.number_field :helmet_quantity
+                .field
+                  %p Палки резиновые:
+                  = g.number_field :baton_exist
+                  %span из
+                  = g.number_field :baton_quantity
+                .field
+                  %p Пистолеты:
+                  = g.number_field :pistol_exist
+                  %span из
+                  = g.number_field :pistol_quantity
+                .field
+                  %p Автоматы:
+                  = g.number_field :machine_gun_exist
+                  %span из
+                  = g.number_field :machine_gun_quantity
+                .field
                   %p
-                    %i(class="fa fa-car")
-                    = f.name
+                    Планшет
+                    %brв наличии
+                  .report-checkbox
+                    = g.check_box :tablet_exist
+                    %label(for="report_tablet_exist")
+                .field
                   %p
-                    %i(class="fa fa-tags")
-                    = f.legal_num
-                  %p
-                    %i(class="fa fa-map-marker")
-                    = f.car_base
-                .report-info-header
-                  .report-date
-                    %i(class="fa fa-calendar")
-                    = g.text_field :report_date
-                  %p
-                    %i(class="fa fa-shield")
-                    = "Дежурный офицер: #{current_officer.name}"
-                .col-header
-                  %pДанные по пробегу:
-                .col-car-data
-                  .field
-                    = g.hidden_field :officer_id, :value => @author.id
-                  .field
-                    = g.hidden_field :car_id, :value => f.id
-                  .field
-                    = g.number_field :mileage_before, placeholder: "Пробег перед сменой"
-                  .field
-                    = g.number_field :mileage_after, placeholder: "Пробег после смены"
-                  .field
-                    = g.number_field :mileage_day, placeholder: "Пробег за смену"
-                  .field
-                    = g.number_field :mileage_board, placeholder: "Пробег по бортовому журналу"
-                  .field
-                    = g.number_field :mileage_day_gps, placeholder: "Пробег за смену GPS"
-                  .field
-                    = g.number_field :max_speed, placeholder: "Максимальная скорость"
-                  .field
-                    = g.number_field :fuel_spend, placeholder: "Потрачено топлива"
-                  .field
-                    = g.text_field :fuel_income, placeholder: "Заправлено топлива"
-                .col-header
-                  %pУкомплектованность экипажа:
-                .col-car-kit
-                  .field
-                    %p Радиостанции:
-                    = g.number_field :radio_exist_quantity
-                    %span из
-                    = g.number_field :radio_quantity
-                  .field
-                    %p Видеорегистраторы:
-                    = g.number_field :videorecorder_exist_quantity
-                    %span из
-                    = g.number_field :videorecorder_quantity
-                  .field
-                    %p Бронежилеты:
-                    = g.number_field :armor_exist_quantity
-                    %span из
-                    = g.number_field :armor_quantity
-                  .field
-                    %p Каски:
-                    = g.number_field :helmet_exist_quantity
-                    %span из
-                    = g.number_field :helmet_quantity
-                  .field
-                    %p Палки резиновые:
-                    = g.number_field :baton_exist
-                    %span из
-                    = g.number_field :baton_quantity
-                  .field
-                    %p Пистолеты:
-                    = g.number_field :pistol_exist
-                    %span из
-                    = g.number_field :pistol_quantity
-                  .field
-                    %p Автоматы:
-                    = g.number_field :machine_gun_exist
-                    %span из
-                    = g.number_field :machine_gun_quantity
-                  .field
-                    %p
-                      Планшет
-                      %brв наличии
-                    .report-checkbox
-                      = g.check_box :tablet_exist
-                      %label(for="report_tablet_exist")
-                  .field
-                    %p
-                      Наличие комплекта
-                      %br
-                      (огнетушитель, знак, аптечка)
-                    .report-checkbox
-                      = g.check_box :car_kit
-                      %label(for="report_car_kit")
-                .report-form-footer
-                  %p
-                    = "Ответственный офицер: #{current_officer.name}"
-                  %p(class="actions")
-                    = g.submit 'Создать отчет'
+                    Наличие комплекта
+                    %br
+                    (огнетушитель, знак, аптечка)
+                  .report-checkbox
+                    = g.check_box :car_kit
+                    %label(for="report_car_kit")
+              .report-form-footer
+                %p
+                  = "Ответственный офицер: #{current_officer.name}"
+                %p(class="actions")
+                  = g.submit 'Создать рапорт'

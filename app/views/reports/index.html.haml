@@ -6,6 +6,9 @@
     = q.search_field :car_legal_num_start, placeholder: "Номерной знак"
     = q.submit "Найти рапорт"
 .reports-container
+  - if warning
+    .notice-message(class="warning-message")
+      %p= warning
   - @reports.order('id desc').each do |report|
     .report
       %table(class="reports-table")
