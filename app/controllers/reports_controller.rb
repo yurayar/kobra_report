@@ -86,6 +86,8 @@ class ReportsController < ApplicationController
     end
 
     def can_edit
-      redirect_to reports_path unless @report.officer = current_officer or current_officer.admin?
+      unless @report.officer == current_officer || current_officer.admin?
+        redirect_to reports_path
+      end
     end
 end
