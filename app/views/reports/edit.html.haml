@@ -27,7 +27,7 @@
         .report-info-header
           .report-date
             %i(class="fa fa-calendar")
-            = g.text_field :report_date
+            = g.text_field :report_date, value: @report.report_date.strftime("%d/%m/%Y")
           %p
             = "Дежурный офицер: #{@report.officer.name}"
         .col-header
