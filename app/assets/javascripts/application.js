@@ -23,7 +23,8 @@ $(document).ready(function(){
         dateFormat: "dd/mm/yy",
         defaultDate: 0
     });
-    $('.report-date input').datepicker("setDate", this.getAttr("value"));
+    var date = $('.report-date input').attr("value");
+    //$('.report-date input').datepicker("setDate", date);
     $('.car-report-form .close-form').click(function(){
         $(this).parent('.car-report-form').parent('.report-form-wrapper').hide();
     });

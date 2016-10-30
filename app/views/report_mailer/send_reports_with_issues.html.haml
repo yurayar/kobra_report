@@ -2,5 +2,7 @@
   %head
     %meta(content='text/html; charset=UTF-8' http-equiv='Content-Type')
   %body
-    %h1
-      Message sent successfully!
+    - Report.all.where(:car_id => 1).each do |r|
+      %p= r.car_id
+      %p= r.mileage_day
+      %p= r.officer.name

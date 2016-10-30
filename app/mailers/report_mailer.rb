@@ -1,8 +1,8 @@
 class ReportMailer < ApplicationMailer
-  default from: 'info@raport.kobra.ks.ua'
+  default from: "Рапорт дежурного <raport@kobra.ks.ua>"
 
   def send_reports_with_issues(email)
     @email = email
-    mail(to: @email, subject: "Test")
+    mail(to: @email, subject: "Рапорты с несооответствиями")
   end
 end
