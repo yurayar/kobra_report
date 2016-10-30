@@ -4,8 +4,7 @@ class Report < ApplicationRecord
 
   validate :report_unique, on: :create
 
-  after_create :count_dif
-  after_create :check_data
+  after_create :count_and_check_mileage
   after_create :check_fuel
   after_create :check_speed
 
@@ -16,18 +15,20 @@ class Report < ApplicationRecord
     end
   end
 
-  def count_dif
+  def count_and_check_mileage
+
+    #Check mileage
+    self.mileage_day = self.mileage_after - self.mileage_before
+
     gps_difference = (self.mileage_day - self.mileage_day_gps)
     self.update(:gps_difference => gps_difference)
-  end
 
-  def check_data
-    #Check mileage
-    if (self.mileage_after - self.mileage_before == self.mileage_day) and self.mileage_day == self.mileage_board
-      if (self.mileage_day - self.mileage_day_gps == 0) or (self.mileage_day - self.mileage_day_gps <= 5)
+    if self.mileage_day == self.mileage_board
+      if self.mileage_day - self.mileage_day_gps <= 5
         self.update(:mileage_match => true)
       end
     end
+
   end
 
   def check_fuel

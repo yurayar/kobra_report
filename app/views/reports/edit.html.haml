@@ -29,13 +29,10 @@
             %i(class="fa fa-calendar")
             = g.text_field :report_date
           %p
-            %i(class="fa fa-shield")
-            = "Дежурный офицер: #{current_officer.name}"
+            = "Дежурный офицер: #{@report.officer.name}"
         .col-header
           %pДанные по пробегу:
         .col-car-data
-          = g.hidden_field :officer_id, :value => current_officer.id
-          = g.hidden_field :car_id, :value => @car.id
           .field
             %pПробег на начало смены:
             = g.number_field :mileage_before, placeholder: "Пробег перед сменой"
@@ -115,6 +112,6 @@
               %label(for="report_car_kit")
         .report-form-footer
           %p
-            = "Ответственный офицер: #{current_officer.name}"
+            = "Ответственный офицер: #{@report.officer.name}"
           %p(class="actions")
             = g.submit 'Сохранить изменения'

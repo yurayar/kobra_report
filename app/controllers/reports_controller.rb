@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_officer!
+  before_filter :can_edit, only: :edit
 
   # GET /reports
   # GET /reports.json
@@ -35,6 +36,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
+        ReportMailer.send_reports_with_issues('y.yarych@yandex.com').deliver_later
         format.html { redirect_to reports_path, notice: 'Report was successfully created.' }
         format.json { render :show, status: :created, location: @report }
       else
@@ -81,5 +83,9 @@ class ReportsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
       params.require(:report).permit(:author_id, :car_id, :mileage_before, :mileage_after, :mileage_day, :mileage_day_gps, :fuel_spend, :fuel_income, :gps_difference, :mileage_board, :max_speed, :mileage_match, :fuel_difference, :overspeed, :report_date, :officer_id, :car_kit, :videorecorder_exist_quantity, :videorecorder_quantity, :tablet_exist, :armor_exist_quantity, :armor_quantity, :helmet_exist_quantity, :helmet_quantity, :radio_exist_quantity, :radio_quantity, :baton_exist, :baton_quantity, :pistol_exist, :pistol_quantity, :machine_gun_exist, :machine_gun_quantity)
+    end
+
+    def can_edit
+      redirect_to reports_path unless @report.officer = current_officer or current_officer.admin?
     end
 end

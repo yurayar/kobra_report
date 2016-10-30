@@ -44,9 +44,10 @@
         %p
           Офицер:
           = report.officer.name
-        %p
-          %i(class="fa fa-pencil")
-          = link_to 'Редактировать', edit_report_path(report)
+        - if report.officer.id == current_officer.id or current_officer.admin?
+          %p
+            %i(class="fa fa-pencil")
+            = link_to 'Редактировать', edit_report_path(report)
         - if current_officer.admin?
           %p
             %i(class="fa fa-trash")
