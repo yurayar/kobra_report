@@ -19,7 +19,7 @@
       float: left;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
       border-radius: 5px;
-      margin: 0 1vw;
+      margin: 0 1vw 3vh 1vw;
 
       .header{
         padding: 3vh 3vw;
@@ -82,5 +82,10 @@
     ::-webkit-input-placeholder{
       color: #333333;
     }
+  }
+
+  .card-item-reports{
+    padding: 4vh 2vw;
+    border-bottom: 1px solid #EFEFEF;
   }
 }

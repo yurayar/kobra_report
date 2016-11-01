@@ -36,7 +36,6 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        ReportMailer.send_reports_with_issues('y.yarych@yandex.com').deliver_later
         format.html { redirect_to reports_path, notice: 'Report was successfully created.' }
         format.json { render :show, status: :created, location: @report }
       else

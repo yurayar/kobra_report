@@ -29,6 +29,9 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'font-awesome-sass', '~> 4.6.2'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'whenever', require: false
+gem 'premailer-rails'
+gem 'nokogiri'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

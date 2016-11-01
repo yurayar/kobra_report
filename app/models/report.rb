@@ -24,11 +24,15 @@ class Report < ApplicationRecord
     self.update(:gps_difference => gps_difference)
 
     if self.mileage_day == self.mileage_board
-      if self.mileage_day - self.mileage_day_gps <= 5
+      if self.mileage_day >= self.mileage_day_gps and self.mileage_day - self.mileage_day_gps <= 5
         self.update(:mileage_match => true)
+      else if self.mileage_day < self.mileage_day_gps and self.mileage_day_gps - self.mileage_day <= 5
+        self.update(:mileage_match => true)
+           else
+             self.update(:mileage_match => false)
+           end
       end
     end
-
   end
 
   def check_fuel
@@ -43,9 +47,19 @@ class Report < ApplicationRecord
 
   def check_speed
     #Check speed
+    overspeed = 0
     if self.max_speed > 70
-      overspeed = self.max_speed - 60.0
+      overspeed += self.max_speed - 60.0
       self.update(:overspeed => overspeed)
+    end
+
+    assign_report_state
+  end
+
+  def assign_report_state
+    #Define whether report is valid or not
+    if self.mileage_match == false or self.fuel_difference > 0 or self.overspeed
+      self.update(:report_state_valid => false)
     end
   end
 end

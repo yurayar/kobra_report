@@ -31,3 +31,20 @@
           .input
             = f.text_field :password, placeholder: "Пароль"
           = f.submit 'Создать'
+    .dash-card
+      .header
+        %pРапорты с несоответствиями:
+      - if @reports_with_issues
+        - @reports_with_issues.each do |r|
+          .card-item(class="card-item-reports")
+            %p= r.car.call_num
+            %p= "Дата: #{r.report_date.strftime("%d/%m/%Y")}"
+            %p= "Автомобиль: #{r.car.name}"
+            %p= "Номерной знак: #{r.car.legal_num}"
+            %p= "Ответственный офицер: #{r.officer.name}"
+            - if !r.mileage_match?
+              %p(class="mileage-different wrong") Пробег не соответствует 
+            - if r.fuel_difference
+              %p="Заправлено на  #{r.fuel_difference}  л больше "
+            - if r.overspeed
+              %p= "Превышение скорости на #{r.overspeed} км/ч"

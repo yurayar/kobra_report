@@ -55,7 +55,7 @@
       .reports-sub-footer
         %pПередвижение автомобиля:
         %br
-        - if report.mileage_match == true
+        - if report.mileage_match?
           %p(class="mileage-match ok")
             %i(class="fa fa-check")
             Пробег соответствует

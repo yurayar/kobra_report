@@ -34,3 +34,4 @@ $(document).ready(function(){
     });
     $('.report-form-wrapper').css({'min-height':($("body").height()+'px')})
 });
+$(function(){ $(document).foundation(); });

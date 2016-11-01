@@ -31,10 +31,10 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
       :port           => 587,
-      :address        => "smtp.mailgun.org",
-      :domain         => ENV['domain'],
-      :user_name      => ENV['username'],
-      :password       => ENV['password'],
+      :address        => 'smtp.mailgun.org',
+      :domain         => 'sandbox498db7a467fc4bdbb1599473311d738d.mailgun.org',
+      :user_name      => 'postmaster@sandbox498db7a467fc4bdbb1599473311d738d.mailgun.org',
+      :password       => 'd67dea2b8abf093752a58164d46ab489',
       :authentication => :plain,
   }
   # Don't care if the mailer can't send.
