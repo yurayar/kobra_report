@@ -1,0 +1,40 @@
+!!! 5
+%html
+  %head
+    %link(rel="stylesheet" href="/assets/report_mailer.scss")
+    %link(rel="stylesheet" href="/assets/report_mailer_mobile.scss" type="text/css" data-premailer="ignore")
+  %body
+    .mail-wrapper
+      .mail-wrapper-content
+        .mail-header
+          .header-icon
+          %p
+            Выборка рапортов с несоответствиями
+          %p
+            с
+            %span
+              =(Time.now-7.days).strftime("%d/%m/%Y")
+            по
+            %span
+              =Time.now.strftime("%d/%m/%Y")
+        .mail-body
+          - if @reports_with_issues
+            - @reports_with_issues.each do |r|
+              .mail-item-wrapper
+                .mail-item
+                  .mail-item-header
+                    %p= "Дата: #{r.report_date.strftime("%d/%m/%Y")}"
+                    %p= "Автомобиль: #{r.car.name} (#{r.car.legal_num})"
+                  .mail-item-body
+                    - if !r.mileage_match?
+                      %p(class="mileage-different wrong") Пробег не соответствует 
+                    - if r.fuel_difference
+                      %p="Заправлено на  #{r.fuel_difference}  л больше "
+                    - if r.overspeed
+                      %p= "Превышение скорости на #{r.overspeed} км/ч"
+                  .mail-item-footer
+                    %p= "Ответственный офицер: #{r.officer.name}"
+                    = link_to "Просмотреть рапорт", report_url(r), class: "mail-btn"
+        .mail-footer
+          %p
+            Это сообщение сгенерировано системой "Рапорт Дежурного Офицера"

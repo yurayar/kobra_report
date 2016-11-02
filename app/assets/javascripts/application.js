@@ -32,6 +32,14 @@ $(document).ready(function(){
         dateFormat: "dd/mm/yy",
         defaultDate: 0
     });
-    $('.report-form-wrapper').css({'min-height':($("body").height()+'px')})
+    $('.report-form-wrapper').css({'min-height':($("body").height()+'px')});
+    $('.car-report-button').click(function(){
+        var targetButton = $(this).find('.actions input[type="submit"]');
+        var emptyInputs = $(this).find('.col-car-data input[required="required"]').filter(function() {
+            return this.value === "";
+        });
+        if(emptyInputs.length === 0){
+            targetButton.removeAttr("disabled");
+        }
+    });
 });
-$(function(){ $(document).foundation(); });

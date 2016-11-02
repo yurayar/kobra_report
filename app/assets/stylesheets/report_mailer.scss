@@ -1,5 +1,129 @@
+.mail-wrapper{
+  width: 100%;
+  padding: 0;
 
+  h1, p, a{
+    font-family: arial, sans-serif;
+    font-weight: 300;
+  }
 
-.header{
-  background: red;
+  .mail-wrapper-content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 5px;
+
+    .mail-header {
+      width: 90%;
+      background: #F5F5F5;
+      padding: 5% 5%;
+      text-align: center;
+      position: relative;
+
+      .header-icon{
+        width: 130px;
+        height: 130px;
+        background: url(https://res.cloudinary.com/dbyqfamwg/image/upload/v1478013261/browser_sww9rx.png) no-repeat right center;
+        background-size: 100%;
+      }
+
+      p{
+        color: black;
+        text-transform: uppercase;
+        line-height: 40px;
+      }
+      p:nth-child(2){
+        margin: 30px 0 10px 0;
+        font-size: 1.2em;
+      }
+      p:nth-child(3){
+        margin: 0;
+        font-size: 1.2em;
+
+        span{
+          color: #F44336;
+          font-size: 1.5em;
+        }
+      }
+    }
+    .mail-body {
+      width: 100%;
+      min-height: 400px;
+      background: #FAFAFA;
+      padding: 0;
+    }
+    .mail-item-wrapper {
+      width: 100%;
+      margin-bottom: 2vh;
+
+      &:last-child{
+        margin-bottom: 0;
+      }
+
+      .mail-item{
+        width: 100%;
+        border-top: 1px solid #EFEFEF;
+        border-bottom: 1px solid #EFEFEF;
+
+        .mail-item-header{
+          line-height: 50px;
+          width: 90%;
+          background: #FAFAFA;
+          padding: 0 5%;
+
+          p{
+            display: inline-block;
+            margin: 0 2.5%;
+          }
+        }
+        .mail-item-body{
+          width: 90%;
+          padding: 3% 5%;
+          background: #f5f5f5;
+
+          p{
+            color: #F44336;
+            display: inline-block;
+            margin: 0 2.5%;
+          }
+        }
+        .mail-item-footer{
+          width: 90%;
+          padding: 0 5%;
+          background: #FAFAFA;
+
+          p{
+            display: inline-block;
+            margin: 3% 2.5%;
+            line-height: 40px;
+          }
+          .mail-btn{
+            color: white;
+            background: #4ec019;
+            padding: 15px 4%;
+            text-decoration: none;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+    .mail-footer{
+      width: 90%;
+      padding: 5%;
+      background: #F5F5F5;
+      text-align: center;
+
+      p{
+        margin: 0;
+        font-size: 1em;
+      }
+      a{
+        color: red;
+        border: 1px solid red;
+        border-radius: 5px;
+        text-decoration: none;
+        padding: 2% 3%;
+      }
+    }
+  }
 }

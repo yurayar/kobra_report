@@ -326,6 +326,15 @@ $appGreen: #70c050;
   background: transparent;
   color: $appGreen;
 }
+.car-report-form .actions input:disabled{
+  opacity: 0.5;
+  cursor: default;
+
+  &:hover{
+    background: $appGreen;
+    color: white;
+  }
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

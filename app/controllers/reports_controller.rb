@@ -40,7 +40,7 @@ class ReportsController < ApplicationController
         format.json { render :show, status: :created, location: @report }
       else
         if @report.errors[:report_date]
-          format.html { redirect_to reports_path, warning: "Рапорт с такой датой по этому автомоилю уже создан. Попробуйте заново, изменив дату рапорта." }
+          format.html { redirect_to reports_path, warning: "Рапорт с такой датой по этому автомобилю уже создан. Попробуйте заново, изменив дату рапорта." }
           format.json { render json: @report.errors, status: :unprocessable_entity }
         else
           redirect_to reports_path

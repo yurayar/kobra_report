@@ -53,17 +53,15 @@
                 .field
                   = g.hidden_field :car_id, :value => f.id
                 .field
-                  = g.number_field :mileage_before, placeholder: "Пробег перед сменой"
+                  = g.number_field :mileage_before, placeholder: "Пробег перед сменой", :required => true
                 .field
-                  = g.number_field :mileage_after, placeholder: "Пробег после смены"
+                  = g.number_field :mileage_after, placeholder: "Пробег после смены", :required => true
                 .field
-                  = g.number_field :mileage_board, placeholder: "Пробег по бортовому журналу"
+                  = g.number_field :mileage_board, placeholder: "Пробег по бортовому журналу", :required => true
                 .field
-                  = g.number_field :mileage_day_gps, placeholder: "Пробег за смену GPS"
+                  = g.number_field :mileage_day_gps, placeholder: "Пробег за смену GPS", :required => true
                 .field
-                  = g.number_field :max_speed, placeholder: "Максимальная скорость"
-                .field
-                  = g.number_field :fuel_spend, placeholder: "Потрачено топлива"
+                  = g.number_field :max_speed, placeholder: "Максимальная скорость", :required => true
                 .field
                   = g.text_field :fuel_income, placeholder: "Заправлено топлива"
               .col-header
@@ -123,4 +121,4 @@
                 %p
                   = "Ответственный офицер: #{current_officer.name}"
                 %p(class="actions")
-                  = g.submit 'Создать рапорт'
+                  = g.submit 'Создать рапорт', :disabled => true

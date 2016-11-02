@@ -4,9 +4,9 @@ class Report < ApplicationRecord
 
   validate :report_unique, on: :create
 
-  after_create :count_and_check_mileage
-  after_create :check_fuel
-  after_create :check_speed
+  before_save :count_and_check_mileage
+  before_save :count_and_check_fuel
+  before_save :check_speed
 
 
   def report_unique
@@ -21,27 +21,33 @@ class Report < ApplicationRecord
     self.mileage_day = self.mileage_after - self.mileage_before
 
     gps_difference = (self.mileage_day - self.mileage_day_gps)
-    self.update(:gps_difference => gps_difference)
+    self.gps_difference = gps_difference
 
     if self.mileage_day == self.mileage_board
       if self.mileage_day >= self.mileage_day_gps and self.mileage_day - self.mileage_day_gps <= 5
-        self.update(:mileage_match => true)
+        self.mileage_match = true
       else if self.mileage_day < self.mileage_day_gps and self.mileage_day_gps - self.mileage_day <= 5
-        self.update(:mileage_match => true)
+        self.mileage_match = true
            else
-             self.update(:mileage_match => false)
+             self.mileage_match = false
            end
       end
     end
   end
 
-  def check_fuel
+  def count_and_check_fuel
+    #Count fuel
+    if self.mileage_day >= self.mileage_day_gps
+      self.fuel_spend = self.mileage_day.to_f/10
+    else
+      self.fuel_spend = self.mileage_day_gps.to_f/10
+    end
     #Check fuel
     if self.fuel_income > self.fuel_spend
       fuel_difference = (self.fuel_income - self.fuel_spend.to_f)
-      self.update(:fuel_difference => fuel_difference.round(2))
+      self.fuel_difference = fuel_difference.round(2)
     else
-      self.update(:fuel_difference => 0)
+      self.fuel_difference = 0
     end
   end
 
@@ -50,7 +56,7 @@ class Report < ApplicationRecord
     overspeed = 0
     if self.max_speed > 70
       overspeed += self.max_speed - 60.0
-      self.update(:overspeed => overspeed)
+      self.overspeed = overspeed
     end
 
     assign_report_state
@@ -59,7 +65,7 @@ class Report < ApplicationRecord
   def assign_report_state
     #Define whether report is valid or not
     if self.mileage_match == false or self.fuel_difference > 0 or self.overspeed
-      self.update(:report_state_valid => false)
+      self.report_state_valid = false
     end
   end
 end

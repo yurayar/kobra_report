@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031171841) do
+ActiveRecord::Schema.define(version: 20161102165603) do
 
   create_table "cars", force: :cascade do |t|
     t.string   "name"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20161031171841) do
     t.integer  "mileage_after"
     t.integer  "mileage_day"
     t.integer  "mileage_day_gps"
-    t.integer  "fuel_spend"
+    t.float    "fuel_spend"
     t.float    "fuel_income"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
