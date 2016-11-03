@@ -48,3 +48,14 @@
               %p="Заправлено на  #{r.fuel_difference}  л больше "
             - if r.overspeed
               %p= "Превышение скорости на #{r.overspeed} км/ч"
+    .dash-card
+      .header
+        %pИзменения рапортов:
+      - Edition.all.each do |e|
+        .card-item(class="card-item-editions")
+          .item-header
+            %p= "#{e.officer.name} редактировал рапорт №#{e.report.id} за #{e.report.report_date.strftime("%d/%m/%Y")}"
+          .item-body
+            %p= e.content.html_safe
+          .item-footer
+            %p="Дата изменения: #{e.created_at.strftime("%d/%m/%Y")}"

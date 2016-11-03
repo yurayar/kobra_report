@@ -73,7 +73,7 @@
           %p(class="fuel-match ok")
             %i(class="fa fa-tint")
             Расход топлива соответствует
-        - if report.overspeed
+        - if report.overspeed > 0
           %p(class="overspeed wrong")
             %i(class="fa fa-tachometer")
             Превышение скорости на

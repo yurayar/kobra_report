@@ -41,5 +41,8 @@ $(document).ready(function(){
         if(emptyInputs.length === 0){
             targetButton.removeAttr("disabled");
         }
+        else{
+            targetButton.attr("disabled", "disabled")
+        }
     });
 });
