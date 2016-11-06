@@ -1,30 +1,107 @@
-%p#notice= notice
-
-%p
-  %b Author:
-  = @report.author_id
-%p
-  %b Car:
-  = @report.car_id
-%p
-  %b Mileage before:
-  = @report.mileage_before
-%p
-  %b Mileage after:
-  = @report.mileage_after
-%p
-  %b Mileage day:
-  = @report.mileage_day
-%p
-  %b Mileage day gps:
-  = @report.mileage_day_gps
-%p
-  %b Fuel spend:
-  = @report.fuel_spend
-%p
-  %b Fuel income:
-  = @report.fuel_income
-
-= link_to 'Edit', edit_report_path(@report)
-\|
-= link_to 'Back', reports_path
+.report-show-wrapper
+  .report-page-content
+    .report-container
+      .report-page-header
+        %p
+          Рапорт дежурного офицера
+          %span= "##{@report.id}"
+      .report-info-header
+        %p(class="call-num")
+          = @report.car.call_num
+        %p
+          %i(class="fa fa-calendar")
+          = @report.report_date.strftime("%d/%m/%Y")
+        %p
+          %i(class="fa fa-car")
+          = @report.car.name
+        %p
+          %i(class="fa fa-tags")
+          = @report.car.legal_num
+        %p
+          %i(class="fa fa-map-marker")
+          = @report.car.car_base
+      .report-content
+        %h5(class="row-heading")
+          Данные по пробегу:
+        .report-content-row
+          %p
+            Пробег до смены:
+            %br
+            %span
+              = "#{@report.mileage_before} км"
+          %p
+            Пробег после смены:
+            %br
+            %span
+              = "#{@report.mileage_after} км"
+          %p
+            Пробег за смену:
+            %br
+            %span
+              = "#{@report.mileage_day} км"
+          %p
+            Пробег за смену (бортовой журнал):
+            %br
+            %span
+              = "#{@report.mileage_board} км"
+          %p
+            Пробег за смену (GPS):
+            %br
+            %span
+              = "#{@report.mileage_day_gps} км"
+          %p
+            Максимальная скорость:
+            %br
+            %span
+              = "#{@report.max_speed} км/ч"
+        %h5(class="row-heading")
+          Данные по топливу:
+        .report-content-row
+          %p
+            Потрачено топлива (расчет 10л/100км):
+            %br
+            %span
+              = "#{@report.fuel_spend} л"
+          %p
+            Заправлено топлива:
+            %br
+            %span
+              = "#{@report.fuel_income} л"
+        %h5(class="row-heading")
+          Результат:
+        .report-summary
+          - if @report.mileage_match?
+            %p(class="mileage-match ok")
+              %i(class="fa fa-check")
+              Пробег соответствует
+          - else
+            %p(class="mileage-different wrong")
+              %i(class="fa fa-times")
+              Пробег не соответствует
+          - if @report.fuel_difference > 0
+            %p(class="fuel-different wrong")
+              %i(class="fa fa-tint")
+              Заправлено на
+              = @report.fuel_difference
+              л больше
+          - else
+            %p(class="fuel-match ok")
+              %i(class="fa fa-tint")
+              Расход топлива соответствует
+          - if @report.overspeed > 0
+            %p(class="overspeed wrong")
+              %i(class="fa fa-tachometer")
+              Превышение скорости на
+              = @report.overspeed
+              км/ч
+          - else
+            %p(class="normal-speed ok")
+              %i(class="fa fa-tachometer")
+              Скорость не превышена
+      .report-footer
+        %p= "Ответственный дежурный офицер: #{@report.officer.name}"
+      - if @report.officer.id == current_officer.id or current_officer.admin?
+        .report-footer
+          = link_to raw('<i class="fa fa-pencil"></i>Редактировать рапорт'), edit_report_path(@report), class: "report-btn"
+          - if current_officer.admin?
+            = link_to raw('<i class="fa fa-trash"></i>Удалить рапорт'), @report, :method => :delete, :data => { :confirm => 'Are you sure?'}, class: "report-btn"

@@ -1,7 +1,3 @@
-.report-edit-header
-  %p
-    Редактирование отчета
-    %span= "##{@report.id}"
 .report-edit-container
   .report-edit-form
     .car-report-form
@@ -12,6 +8,10 @@
             %ul
               - @report.errors.full_messages.each do |msg|
                 %li= msg
+        .report-edit-header
+          %p
+            Редактирование отчета
+            %span= "##{@report.id}"
         .report-form-header
           %p(class="call-num")
             = @car.call_num
@@ -40,9 +40,6 @@
             %pПробег на конец смены:
             = g.number_field :mileage_after, placeholder: "Пробег после смены"
           .field
-            %pПробег за смену:
-            = g.number_field :mileage_day, placeholder: "Пробег за смену"
-          .field
             %pПробег по бортовому журналу:
             = g.number_field :mileage_board, placeholder: "Пробег по бортовому журналу"
           .field
@@ -51,9 +48,6 @@
           .field
             %pМаксимальная скорость:
             = g.number_field :max_speed, placeholder: "Максимальная скорость"
-          .field
-            %pПотрачено топлива:
-            = g.number_field :fuel_spend, placeholder: "Потрачено топлива"
           .field
             %pЗаправлено топлива:
             = g.text_field :fuel_income, placeholder: "Заправлено топлива"

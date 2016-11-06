@@ -137,6 +137,7 @@ $appGreen: #70c050;
   display: none;
   padding: 5vh 20vw;
   transition: all 0.5s ease;
+  animation-duration: 0.3s;
 }
 .car-report-form{
   width: 60vw;
@@ -146,6 +147,7 @@ $appGreen: #70c050;
   overflow: hidden;
   border-radius: 5px;
   position: relative;
+  animation-delay: 0.3s;
 }
 .car-report-form .close-form{
   position: absolute;

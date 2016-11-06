@@ -53,6 +53,7 @@ header{
     padding: 0 5vw;
     position: relative;
     box-sizing: border-box;
+    background: white;
 }
 header .site-logo{
     width: 7vw;
@@ -74,6 +75,13 @@ header .site-menu{
     text-decoration: none;
     font-size: 1.1em;
     margin: 0 1vw;
+    display: inline-block;
+    color: #4f4f4f;
+
+    &:hover{
+      color: black;
+    }
+
     p{
       display: inherit;
       i{

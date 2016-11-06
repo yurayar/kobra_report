@@ -1,6 +1,12 @@
 .dashboard-wrapper
   .dashboard-header
-
+  .dashboard-nav
+    .nav-item
+      %pПользователи
+    .nav-item
+      %pАвторизации
+    .nav-item
+      %pАктивность
   .dashboard-content
     .dash-card
       .header
@@ -46,7 +52,7 @@
               %p(class="mileage-different wrong") Пробег не соответствует 
             - if r.fuel_difference
               %p="Заправлено на  #{r.fuel_difference}  л больше "
-            - if r.overspeed
+            - if r.overspeed > 0
               %p= "Превышение скорости на #{r.overspeed} км/ч"
     .dash-card
       .header

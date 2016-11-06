@@ -44,43 +44,43 @@
         %p
           Офицер:
           = report.officer.name
+        %p
+          = link_to raw('<i class="fa fa-area-chart"></i>Просмотреть'), report_path(report)
         - if report.officer.id == current_officer.id or current_officer.admin?
           %p
-            %i(class="fa fa-pencil")
-            = link_to 'Редактировать', edit_report_path(report)
+            = link_to raw('<i class="fa fa-pencil"></i>Редактировать'), edit_report_path(report)
         - if current_officer.admin?
           %p
-            %i(class="fa fa-trash")
-            = link_to 'Удалить', report, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            = link_to raw('<i class="fa fa-trash"></i>Удалить'), report, :method => :delete, :data => { :confirm => 'Are you sure?' }
       .reports-sub-footer
         %pПередвижение автомобиля:
         %br
         - if report.mileage_match?
-          %p(class="mileage-match ok")
+          %p(class="ok")
             %i(class="fa fa-check")
             Пробег соответствует
         - else
-          %p(class="mileage-different wrong")
+          %p(class="wrong")
             %i(class="fa fa-times")
             Пробег не соответствует
         - if report.fuel_difference > 0
-          %p(class="fuel-different wrong")
+          %p(class="wrong")
             %i(class="fa fa-tint")
             Заправлено на
             = report.fuel_difference
             л больше
         - else
-          %p(class="fuel-match ok")
+          %p(class="ok")
             %i(class="fa fa-tint")
             Расход топлива соответствует
         - if report.overspeed > 0
-          %p(class="overspeed wrong")
+          %p(class="wrong")
             %i(class="fa fa-tachometer")
             Превышение скорости на
             = report.overspeed
             км/ч
         - else
-          %p(class="normal-speed ok")
+          %p(class="ok")
             %i(class="fa fa-tachometer")
             Скорость не превышена
         %br

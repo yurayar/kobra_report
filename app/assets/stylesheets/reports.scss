@@ -88,27 +88,18 @@ $appGreen: #70c050;
 .reports-footer i{
   margin-right: 0.1vw;
 }
+.reports-footer a i{
+  margin-right: 0.5vw;
+}
 .reports-footer p{
   margin: 0 1vw;
   font-size: 1.2em;
   padding: 0;
 }
-.reports-footer p.mileage-match{
+.reports-footer p.ok{
   color: #088002;
 }
-.reports-footer p.mileage-different{
-  color: #F44336;
-}
-.reports-footer p.fuel-match{
-  color: #088002;
-}
-.reports-footer p.fuel-different{
-  color: #F44336;
-}
-.reports-footer p.normal-speed{
-  color: #088002;
-}
-.reports-footer p.overspeed{
+.reports-footer p.wrong{
   color: #F44336;
 }
 .reports-table td {
@@ -174,19 +165,16 @@ $appGreen: #70c050;
   color: #F44336;
 }
 .report-edit-header {
-  width: 100vw;
-  padding: 10vh 5vw;
-  background: #EEEEEE;
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #EFEFEF;
 
   p{
-    text-align: center;
-    margin-bottom: 5vh;
-    line-height: 6vh;
-    font-size: 3em;
+    text-align: left;
+    font-size: 2.2em;
     font-weight: 300;
-    padding: 0 2vw 2vh 2vw;
+    padding: 3vh 3vw;
+    line-height: normal;
 
     span{
       color: $appGreen;
@@ -194,16 +182,18 @@ $appGreen: #70c050;
   }
 }
 .report-edit-container{
-  padding: 0 12.5vw;
+  padding: 5vh 0;
+  background: #F5F5F5;
 
   .report-edit-form{
-    margin-top: -7vh;
     .car-report-form{
-      width: 75vw;
-      border: 1px solid #e1e1e1;
+      width: 70vw;
+      border: 1px solid #EFEFEF;
+      margin: 0 auto;
 
       .report-form-header{
-        background: #FAFAFA;
+        background: white;
+        border-bottom: 1px solid #EFEFEF;
 
         p.call-num{
           box-shadow: 0 0 1px rgba(0,0,0,0.2);
@@ -211,7 +201,7 @@ $appGreen: #70c050;
       }
 
       .col-car-data .field {
-        width: 22%;
+        width: 30%;
         margin: 1vh 1.5%;
         p {
           font-size: 1.1em;
@@ -219,6 +209,162 @@ $appGreen: #70c050;
           padding-bottom: 1vh;
         }
       }
+
+      .col-car-kit{
+
+        .field {
+          input[type="number"] {
+            width: 25%;
+            margin: 0;
+          }
+
+          span{
+            margin: 0 0.5vw;
+          }
+        }
+
+      }
+      .col-header{
+        border-bottom: 1px solid #EFEFEF;
+      }
+      .report-form-footer{
+        border-top: 1px solid #EFEFEF;
+      }
     }
   }
 }
+.report-show-wrapper{
+  .report-page-header{
+    border-bottom: 1px solid #EFEFEF;
+
+    p{
+      text-align: left;
+      font-size: 2.2em;
+      font-weight: 300;
+      padding: 3vh 3vw;
+      line-height: normal;
+      background: white;
+
+      span{
+        color: $appGreen;
+      }
+    }
+  }
+  .report-page-content{
+    padding: 5vh 0;
+    background: #F5F5F5;
+
+    .report-container{
+      width: 70vw;
+      background: #F5F5F5;
+      margin: 0 auto;
+      border: 1px solid #EFEFEF;
+      border-radius: 5px;
+      overflow: hidden;
+
+      .report-info-header{
+        width: 100%;
+        height: auto;
+        background: white;
+        padding: 2vh 3vw;
+        line-height: 8vh;
+        border-bottom: 1px solid #EFEFEF;
+
+        p.call-num{
+          width: 8vh;
+          line-height: 8vh;
+          text-align: center;
+          background: $appGreen;
+          border-radius: 100%;
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+          font-size: 2em;
+          margin: 0 1vw 0 0;
+          color: white;
+          border: 3px solid white;
+        }
+      }
+
+      .report-content{
+        width: 100%;
+        background: #FAFAFA;
+
+        h5.row-heading{
+          font-size: 1.2em;
+          font-weight: 400;
+          width: 100%;
+          padding: 2vh 3vw;
+          background: white;
+          border-bottom: 1px solid #EFEFEF;
+        }
+
+        .report-content-row{
+          padding: 2vh 3vw;
+          text-align: justify;
+          border-bottom: 1px solid #EFEFEF;
+
+          p{
+            font-size: 1.2em;
+            display: inline-block;
+            padding: 0.5vh 0;
+            line-height: 4vh;
+            margin: 0 1vw;
+
+            span{
+              font-size: 1.4em;
+              text-align: right;
+              padding-left: 1vw;
+              color: $appGreen;
+            }
+          }
+        }
+        .report-summary{
+          padding: 3vh 3vw;
+          background: #FAFAFA;
+          border-top: 1px solid #EFEFEF;
+
+          p{
+            font-size: 1.3em;
+            display: inline-block;
+            margin: 0 1vw;
+          }
+
+          p.ok{
+            color: #27a637;
+          }
+          p.wrong{
+            color: red;
+          }
+        }
+      }
+
+      .report-footer{
+        width: 100%;
+        padding: 2vh 3vw;
+        background: white;
+        border-top: 1px solid #EFEFEF;
+
+        p, a{
+          font-size: 1.2em;
+          display: inline-block;
+          margin: 0 0.5vw;
+        }
+        .report-btn{
+          padding: 1.5vh 3vw;
+          border: 1px solid #dfe3e8;
+          border-radius: 5px;
+          cursor: pointer;
+          display: inline-block;
+
+          &:hover{
+            border-color: #bfc1c6;
+          }
+        }
+
+        i{
+          margin-right: 0.5vw;
+        }
+      }
+    }
+  }
+}
+

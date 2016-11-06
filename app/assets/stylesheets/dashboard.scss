@@ -8,16 +8,35 @@
     padding: 15vh 5vw;
     background: #EEEEEE;
   }
+  .dashboard-nav{
+    width: 20vw;
+    background: white;
+    border: 1px solid #EEEEEE;
+    border-left: none;
+    float: left;
+
+    .nav-item{
+      width: 100%;
+      border-bottom: 1px solid #EEEEEE;
+
+      p{
+        font-size: 1.2em;
+        padding: 3vh 3vw;
+        text-align: center;
+      }
+    }
+  }
   .dashboard-content{
-    width: 100vw;
+    width: 80vw;
     padding: 5vh 5vw;
     display: table;
+    float: left;
 
     .dash-card{
       min-width: 30vw;
       min-height: 20vh;
       float: left;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      border: 1px solid #EEEEEE;
       border-radius: 5px;
       margin: 0 1vw 3vh 1vw;
 

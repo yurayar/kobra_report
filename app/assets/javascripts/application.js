@@ -18,6 +18,8 @@
 $(document).ready(function(){
     $('.card .show-form').click(function () {
         $(this).parent('.car-report-button').children('.report-form-wrapper').show();
+        $(this).parent('.car-report-button').children('.report-form-wrapper').addClass("animated fadeIn");
+        $(this).parent('.car-report-button').children('.report-form-wrapper').children('.car-report-form').addClass("animated slideInUp");
     });
     $('.report-date input').datepicker({
         dateFormat: "dd/mm/yy",
