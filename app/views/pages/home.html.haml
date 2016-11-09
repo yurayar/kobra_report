@@ -107,16 +107,16 @@
                     Планшет
                     %brв наличии
                   .report-checkbox
-                    = g.check_box :tablet_exist
-                    %label(for="report_tablet_exist")
+                    = g.check_box :tablet_exist, :id => "report_tablet_exist_#{f.id}"
+                    = label_tag "report_tablet_exist_#{f.id}", ''
                 .field
                   %p
                     Наличие комплекта
                     %br
                     (огнетушитель, знак, аптечка)
                   .report-checkbox
-                    = g.check_box :car_kit
-                    %label(for="report_car_kit")
+                    = g.check_box :car_kit, :id => "report_car_kit_#{f.id}"
+                    = label_tag "report_car_kit_#{f.id}", ''
               .report-form-footer
                 %p
                   = "Ответственный офицер: #{current_officer.name}"
