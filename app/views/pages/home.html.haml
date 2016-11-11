@@ -68,40 +68,61 @@
                 %pУкомплектованность экипажа:
               .col-car-kit
                 .field
-                  %p Радиостанции:
-                  = g.number_field :radio_exist_quantity
-                  %span из
-                  = g.number_field :radio_quantity
+                  %p Радиостанции автомобильные:
+                  .field-input
+                    %span(class="btn-minus")
+                      = "-"
+                    = g.number_field :radio_exist_quantity, placeholder: "0"
+                    %span(class="btn-plus")
+                      +
                 .field
-                  %p Видеорегистраторы:
-                  = g.number_field :videorecorder_exist_quantity
-                  %span из
-                  = g.number_field :videorecorder_quantity
+                  %p Радиостанции переносные:
+                  .field-input
+                    %span(class="btn-minus")
+                      = "-"
+                    = g.number_field :radio_portable_exist, placeholder: "0"
+                    %span(class="btn-plus")
+                      +
                 .field
                   %p Бронежилеты:
-                  = g.number_field :armor_exist_quantity
-                  %span из
-                  = g.number_field :armor_quantity
+                  .field-input
+                    %span(class="btn-minus")
+                      = "-"
+                    = g.number_field :armor_exist_quantity, placeholder: "0"
+                    %span(class="btn-plus")
+                      +
                 .field
                   %p Каски:
-                  = g.number_field :helmet_exist_quantity
-                  %span из
-                  = g.number_field :helmet_quantity
+                  .field-input
+                    %span(class="btn-minus")
+                      = "-"
+                    = g.number_field :helmet_exist_quantity, placeholder: "0"
+                    %span(class="btn-plus")
+                      +
                 .field
                   %p Палки резиновые:
-                  = g.number_field :baton_exist
-                  %span из
-                  = g.number_field :baton_quantity
+                  .field-input
+                    %span(class="btn-minus")
+                      = "-"
+                    = g.number_field :baton_exist, placeholder: "0"
+                    %span(class="btn-plus")
+                      +
                 .field
                   %p Пистолеты:
-                  = g.number_field :pistol_exist
-                  %span из
-                  = g.number_field :pistol_quantity
+                  .field-input
+                    %span(class="btn-minus")
+                      = "-"
+                    = g.number_field :pistol_exist, placeholder: "0"
+                    %span(class="btn-plus")
+                      +
                 .field
                   %p Автоматы:
-                  = g.number_field :machine_gun_exist
-                  %span из
-                  = g.number_field :machine_gun_quantity
+                  .field-input
+                    %span(class="btn-minus")
+                      = "-"
+                    = g.number_field :machine_gun_exist, placeholder: "0"
+                    %span(class="btn-plus")
+                      +
                 .field
                   %p
                     Планшет

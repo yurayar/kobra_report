@@ -86,104 +86,90 @@
         %br
         %pУкопмлектованость экипажа:
         %br
-        - if report.radio_exist_quantity == report.radio_quantity
+        - if report.radio_exist_quantity == report.car.radio_auto_quantity
           %p(class="ok")
             %i(class="fa fa-check")
-            Радиостанции:
+            Радиостанции автомобильные:
             = report.radio_exist_quantity
-            из
-            = report.radio_quantity
         - else
           %p(class="wrong")
             %i(class="fa fa-times")
-            Радиостанции:
+            Радиостанции автомобильные:
             = report.radio_exist_quantity
             из
-            = report.radio_quantity
-        - if report.videorecorder_exist_quantity == report.videorecorder_quantity
+            = report.car.radio_auto_quantity
+        - if report.radio_portable_exist == report.car.radio_portable_quantity
           %p(class="ok")
             %i(class="fa fa-check")
-            Видеорегистраторы:
-            = report.videorecorder_exist_quantity
-            из
-            = report.videorecorder_quantity
+            Радиостанции переносные:
+            = report.radio_portable_exist
         - else
           %p(class="wrong")
             %i(class="fa fa-times")
-            Видеорегистраторы:
-            = report.videorecorder_exist_quantity
+            Радиостанции переносные:
+            = report.radio_portable_exist
             из
-            = report.videorecorder_quantity
-        - if report.armor_exist_quantity == report.armor_quantity
+            = report.car.radio_portable_quantity
+        - if report.armor_exist_quantity == report.car.armor_quantity
           %p(class="ok")
             %i(class="fa fa-check")
             Бронежилеты:
             = report.armor_exist_quantity
-            из
-            = report.armor_quantity
         - else
           %p(class="wrong")
             %i(class="fa fa-check")
             Бронежилеты:
             = report.armor_exist_quantity
             из
-            = report.armor_quantity
-        - if report.helmet_exist_quantity == report.helmet_quantity
+            = report.car.armor_quantity
+        - if report.helmet_exist_quantity == report.car.helmet_quantity
           %p(class="ok")
             %i(class="fa fa-check")
             Каски:
             = report.helmet_exist_quantity
-            из
-            = report.helmet_quantity
         - else
           %p(class="wrong")
             %i(class="fa fa-times")
             Каски:
             = report.helmet_exist_quantity
             из
-            = report.helmet_quantity
-        - if report.baton_exist == report.baton_quantity
+            = report.car.helmet_quantity
+        - if report.baton_exist == report.car.baton_quantity
           %p(class="ok")
             %i(class="fa fa-check")
             Палки резиновые:
             = report.baton_exist
-            из
-            = report.baton_quantity
         - else
           %p(class="wrong")
             %i(class="fa fa-times")
             Палки резиновые:
             = report.baton_exist
             из
-            = report.baton_quantity
-        - if report.pistol_exist == report.pistol_quantity
+            = report.car.baton_quantity
+        - if report.pistol_exist == report.car.pistol_quantity
           %p(class="ok")
             %i(class="fa fa-check")
             Пистолеты:
             = report.pistol_exist
-            из
-            = report.pistol_quantity
         - else
           %p(class="wrong")
             %i(class="fa fa-times")
             Пистолеты:
             = report.pistol_exist
             из
-            = report.pistol_quantity
-        - if report.machine_gun_exist == report.machine_gun_quantity
+            = report.car.pistol_quantity
+        - if report.machine_gun_exist == report.car.machine_gun_quantity
           %p(class="ok")
             %i(class="fa fa-check")
             Автоматы:
             = report.machine_gun_exist
-            из
-            = report.machine_gun_quantity
         - else
           %p(class="wrong")
             %i(class="fa fa-times")
             Автоматы:
             = report.machine_gun_exist
             из
-            = report.machine_gun_quantity
+            = report.car.machine_gun_quantity
         - if report.car_kit == true
           %p(class="ok")
             %i(class="fa fa-check")

@@ -266,9 +266,9 @@ $appGreen: #70c050;
   display: table;
 }
 .car-report-form .col-car-kit .field{
-  width: 30%;
+  width: 33%;
   float: left;
-  margin: 0 1.66% 2vh;
+  margin: 0 0 2vh;
 }
 .car-report-form .col-car-kit .field input[type="number"]{
   line-height: 4vh;
@@ -280,11 +280,45 @@ $appGreen: #70c050;
   margin: 0 0 2vh 0;
 }
 .car-report-form .col.car-kit .field label{
-  display: block;
-  margin-bottom: 1vh;
+    display: block;
+    margin-bottom: 1vh;
+}
+.car-report-form .col-car-kit .field .field-input{
+  border: 1px solid #dfe3e8;
+  border-radius: 5px;
+  display: inline-block;
+  overflow: hidden;
+
+  .btn-minus, .btn-plus{
+    width: 20px;
+    line-height: 4vh;
+    float: left;
+    padding: 0 0.5vw;
+    background: white;
+    font-size: 1.2em;
+    cursor: pointer;
+
+    &:hover{
+      background: #FAFAFA;
+    }
+    &::selection{
+      opacity: 0;
+    }
+  }
+  input[type="number"]{
+    width: 50px;
+    float: left;
+    margin: 0;
+    border-right: 1px solid #dfe3e8;
+    border-left: 1px solid #dfe3e8;
+    border-top: none;
+    border-bottom: none;
+    border-radius: 0;
+    text-align: center;
+  }
 }
 .car-report-form .col-car-kit .field input[type="number"]{
-  width: 30%;
+  width: 50%;
   display: inline-block;
   margin: 0 0.5vw;
   padding: 0 1vw;

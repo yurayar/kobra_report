@@ -10,17 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102181031) do
+ActiveRecord::Schema.define(version: 20161111113839) do
 
   create_table "cars", force: :cascade do |t|
     t.string   "name"
     t.string   "legal_num"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "call_num"
     t.integer  "mileage"
     t.string   "car_base"
     t.string   "car_photo"
+    t.integer  "armor_quantity",          default: 0
+    t.integer  "baton_quantity",          default: 0
+    t.integer  "helmet_quantity",         default: 0
+    t.integer  "pistol_quantity",         default: 0
+    t.integer  "machine_gun_quantity",    default: 0
+    t.integer  "radio_auto_quantity",     default: 0
+    t.integer  "radio_portable_quantity", default: 0
   end
 
   create_table "editions", force: :cascade do |t|
@@ -60,8 +67,8 @@ ActiveRecord::Schema.define(version: 20161102181031) do
     t.integer  "mileage_day_gps"
     t.float    "fuel_spend"
     t.float    "fuel_income"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "gps_difference"
     t.integer  "mileage_board"
     t.float    "max_speed"
@@ -70,23 +77,24 @@ ActiveRecord::Schema.define(version: 20161102181031) do
     t.integer  "overspeed"
     t.date     "report_date"
     t.integer  "officer_id"
-    t.integer  "videorecorder_exist_quantity"
+    t.integer  "videorecorder_exist_quantity", default: 0
     t.integer  "videorecorder_quantity"
     t.boolean  "tablet_exist"
-    t.integer  "armor_exist_quantity"
+    t.integer  "armor_exist_quantity",         default: 0
     t.integer  "armor_quantity"
-    t.integer  "helmet_exist_quantity"
+    t.integer  "helmet_exist_quantity",        default: 0
     t.integer  "helmet_quantity"
-    t.integer  "radio_exist_quantity"
+    t.integer  "radio_exist_quantity",         default: 0
     t.integer  "radio_quantity"
-    t.integer  "pistol_exist"
+    t.integer  "pistol_exist",                 default: 0
     t.integer  "pistol_quantity"
-    t.integer  "machine_gun_exist"
+    t.integer  "machine_gun_exist",            default: 0
     t.integer  "machine_gun_quantity"
-    t.integer  "baton_exist"
+    t.integer  "baton_exist",                  default: 0
     t.integer  "baton_quantity"
     t.boolean  "car_kit"
     t.boolean  "report_state_valid"
+    t.integer  "radio_portable_exist",         default: 0
   end
 
   create_table "sign_ins", force: :cascade do |t|

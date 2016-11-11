@@ -46,4 +46,31 @@ $(document).ready(function(){
             targetButton.attr("disabled", "disabled")
         }
     });
+    $('.col-car-kit input[type="number"]').focus(function(){
+        if ($(this).val() === "0") {
+            $(this).val("");
+        }
+    });
+    $('.col-car-kit input[type="number"]').focusout(function(){
+       if ($(this).val() === ""){
+          $(this).val("0");
+       }
+    });
+    $('.col-car-kit .field-input .btn-plus').click(function(){
+        var targetElement = $(this).parent('.field-input').children('input[type="number"]');
+        var val =  parseInt(targetElement.val());
+        val = val + 1;
+        targetElement.val(val.toString());
+    });
+    $('.col-car-kit .field-input .btn-minus').click(function(){
+        var targetElement = $(this).parent('.field-input').children('input[type="number"]');
+        var val =  parseInt(targetElement.val());
+        if (val >= 1) {
+            val = val - 1;
+        }
+        else{
+            val = 0;
+        }
+        targetElement.val(val.toString());
+    });
 });

@@ -24,5 +24,26 @@
   .field
     = f.label :car_photo
     = f.file_field :car_photo
+  .field
+    = f.label "Количество автомобильных радиостанций:"
+    = f.number_field :radio_auto_quantity
+  .field
+    = f.label "Количество переносных радиостанций:"
+    = f.number_field :radio_portable_quantity
+  .field
+    = f.label "Количество бронежилетов:"
+    = f.number_field :armor_quantity
+  .field
+    = f.label "Количество сфер:"
+    = f.number_field :helmet_quantity
+  .field
+    = f.label "Количество палок резиновых:"
+    = f.number_field :baton_quantity
+  .field
+    = f.label "Количество пистолетов:"
+    = f.number_field :pistol_quantity
+  .field
+    = f.label "Количество автоматов:"
+    = f.number_field :machine_gun_quantity
   .actions
     = f.submit 'Save'

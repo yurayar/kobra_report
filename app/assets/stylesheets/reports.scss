@@ -156,7 +156,7 @@ $appGreen: #70c050;
   line-height: 5vh;
   font-size: 1.2em;
   margin: 0 1vw;
-  display: inline;
+  display: inline-block;
 }
 .reports-sub-footer p.ok{
   color: #088002;
@@ -210,20 +210,6 @@ $appGreen: #70c050;
         }
       }
 
-      .col-car-kit{
-
-        .field {
-          input[type="number"] {
-            width: 25%;
-            margin: 0;
-          }
-
-          span{
-            margin: 0 0.5vw;
-          }
-        }
-
-      }
       .col-header{
         border-bottom: 1px solid #EFEFEF;
       }
