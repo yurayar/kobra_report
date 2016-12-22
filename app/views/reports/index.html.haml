@@ -24,6 +24,8 @@
             %td= 'Максимальная скорость'
             %td= 'Потрачено топлива'
             %td= 'Заправлено топлива'
+            - if report.fuel_balance
+              %td= 'Остаток в баке'
           %tr(class="reports-body")
             %td
               %p(class="call-num")= Car.find_by(:id => report.car_id).call_num
@@ -35,6 +37,8 @@
             %td= "#{report.max_speed} км/ч"
             %td= "#{report.fuel_spend} л"
             %td= "#{report.fuel_income} л"
+            - if report.fuel_balance
+              %td= "#{report.fuel_balance} л"
       .reports-footer
         .car-number
           %p= Car.find_by(:id => report.car_id).legal_num
@@ -63,13 +67,17 @@
           %p(class="wrong")
             %i(class="fa fa-times")
             Пробег не соответствует
-        - if report.fuel_difference > 0
+        - if report.fuel_difference > 0 and report.cold_period == false
           %p(class="wrong")
             %i(class="fa fa-tint")
             Заправлено на
             = report.fuel_difference
             л больше
-        - else
+        - if report.fuel_difference > 0 and report.fuel_difference <= 3 and report.cold_period
+          %p(class="ok")
+            %i(class="fa fa-tint")
+            Расход топлива соответствует (Зимний период)
+        - if report.fuel_difference == 0
           %p(class="ok")
             %i(class="fa fa-tint")
             Расход топлива соответствует
@@ -79,7 +87,11 @@
             Превышение скорости на
             = report.overspeed
             км/ч
-        - else
+        - if report.overspeed == 0 and report.run_on_track
+          %p(class="ok")
+            %i(class="fa fa-tachometer")
+            Скорость не превышена (Движение вне города)
+        - if report.overspeed == 0 and report.run_on_track == false
           %p(class="ok")
             %i(class="fa fa-tachometer")
             Скорость не превышена

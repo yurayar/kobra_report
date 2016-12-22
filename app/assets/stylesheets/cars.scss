@@ -1,3 +1,89 @@
 // Place all the styles related to the cars controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.cars-container{
+  padding: 7vh 4vw;
+  background: #F5F5F5;
+  display: table;
+  min-height: 92vh;
+
+  .card{
+    float: left;
+    margin: 0 0.5vw;
+    box-shadow: none;
+    border: 1px solid #EEEEEE;
+
+    .show-car{
+      padding: 2.2vh 4vw;
+      background: #70c050;
+      border: 1px solid #70c050;
+      color: white;
+      line-height: 7vh;
+      font-size: 1.2em;
+      border-radius: 50px;
+      font-weight: 300;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover{
+        background: transparent;
+        color: #70c050;
+      }
+
+      i{
+        margin-right: 0.5vw;
+      }
+    }
+  }
+}
+.car-page-container{
+  width: 100vw;
+  height: 100vh;
+  background: #F5F5F5;
+  padding: 7vh 3vw;
+
+  .car-info-card{
+    width: 30vw;
+    height: 80vh;
+    background: white;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .car-info-header{
+
+    }
+
+    .car-info-image{
+      width: 100%;
+      height: 250px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .car-info-header{
+      padding: 3vh 1vw;
+      border-bottom: 1px solid #EEEEEE;
+
+      p{
+        font-size: 2em;
+        font-weight: 300;
+        display: inline-block;
+        margin: 0 1vw;
+      }
+
+    }
+
+    .car-info-data{
+      padding: 1vh 2vw;
+      border-bottom: 1px solid #EEEEEE;
+      background: #FAFAFA;
+
+      p{
+        font-size: 1.3em;
+        margin: 2vh 0;
+      }
+    }
+  }
+}

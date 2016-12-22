@@ -1,12 +1,12 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @car.name
-%p
-  %b Legal num:
-  = @car.legal_num
-
-= link_to 'Edit', edit_car_path(@car)
-\|
-= link_to 'Back', cars_path
+.car-page-container
+  .car-info-card
+    .car-info-image(style="background-image:url(#{@car.car_photo.url});")
+    .car-info-header
+      %p= @car.name
+    .car-info-data
+      %p= "Номерной знак: #{@car.legal_num}"
+      %p= "Номер ГОР: #{@car.call_num}"
+      %p= "Пробег: #{@car.mileage} км"
+      %p
+        Местоположение:
+        = @car.car_base

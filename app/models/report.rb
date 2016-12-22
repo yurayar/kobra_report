@@ -47,6 +47,7 @@ class Report < ApplicationRecord
 
     #Check mileage
     self.mileage_day = self.mileage_after - self.mileage_before
+    self.mileage_day_gps = self.mileage_day_gps.round(2);
 
     gps_difference = (self.mileage_day - self.mileage_day_gps)
     self.gps_difference = gps_difference
@@ -67,8 +68,10 @@ class Report < ApplicationRecord
     #Count fuel
     if self.mileage_day >= self.mileage_day_gps
       self.fuel_spend = self.mileage_day.to_f/10
+      self.fuel_spend = self.fuel_spend.round(2)
     else
-      self.fuel_spend = self.mileage_day_gps.to_f/10
+      self.fuel_spend = self.mileage_day_gps/10
+      self.fuel_spend = self.fuel_spend.round(2)
     end
     #Check fuel
     if self.fuel_income.nil?
@@ -85,7 +88,7 @@ class Report < ApplicationRecord
   def check_speed
     #Check speed
     overspeed = 0
-    if self.max_speed > 70
+    if self.max_speed > 70 and self.run_on_track == false
       overspeed += self.max_speed - 60.0
       self.overspeed = overspeed
     else

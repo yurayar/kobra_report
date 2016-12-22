@@ -1,27 +1,16 @@
-%h1 Listing cars
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Legal num
-      %th Call number
-      %th Mileage
-      %th Car base
-
-  %tbody
-    - @cars.each do |car|
-      %tr
-        %td= car.id
-        %td= car.name
-        %td= car.legal_num
-        %td= car.call_num
-        %td= car.mileage
-        %td= car.car_base
-        %td= link_to 'Show', car
-        %td= link_to 'Edit', edit_car_path(car)
-        %td= link_to 'Destroy', car, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Car', new_car_path
+.cars-container
+  - @cars.each do |car|
+    .card
+      .car-image(style="background-image:url(#{car.car_photo.url});")
+        .car-number
+          .flag
+          %p= car.legal_num
+      .car-info
+        %p(class="call-num")
+          = car.call_num
+        %h4= car.name
+        %p
+          %i(class="fa fa-map-marker")
+          = car.car_base
+      .car-report-button
+        = link_to raw('<i class="fa fa-car"></i>Просмотреть'), car, class: "show-car"

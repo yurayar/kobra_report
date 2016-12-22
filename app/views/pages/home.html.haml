@@ -64,6 +64,8 @@
                   = g.number_field :max_speed, placeholder: "Максимальная скорость", :required => true
                 .field
                   = g.text_field :fuel_income, placeholder: "Заправлено топлива"
+                .field
+                  = g.text_field :fuel_balance, placeholder: "Остаток топлива в баке"
               .col-header
                 %pУкомплектованность экипажа:
               .col-car-kit
@@ -138,6 +140,18 @@
                   .report-checkbox
                     = g.check_box :car_kit, :id => "report_car_kit_#{f.id}"
                     = label_tag "report_car_kit_#{f.id}", ''
+                .field
+                  %p
+                    Движение вне города
+                  .report-checkbox
+                    = g.check_box :run_on_track, :id => "report_run_on_track_#{f.id}"
+                    = label_tag "report_run_on_track_#{f.id}", ''
+                .field
+                  %p
+                    Зимний период
+                  .report-checkbox
+                    = g.check_box :cold_period, :id => "report_cold_period_#{f.id}"
+                    = label_tag "report_cold_period_#{f.id}", ''
               .report-form-footer
                 %p
                   = "Ответственный офицер: #{current_officer.name}"
