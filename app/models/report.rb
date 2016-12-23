@@ -106,4 +106,5 @@ class Report < ApplicationRecord
       self.report_state_valid = true
     end
   end
+
 end

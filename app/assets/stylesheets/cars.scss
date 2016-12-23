@@ -49,6 +49,7 @@
     border: 1px solid #EEEEEE;
     border-radius: 5px;
     overflow: hidden;
+    float: left;
 
     .car-info-header{
 
@@ -83,6 +84,32 @@
       p{
         font-size: 1.3em;
         margin: 2vh 0;
+      }
+    }
+  }
+  .blocks-container{
+    float: left;
+    width: 64vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 3vw;
+    .car-block{
+      width: auto;
+      margin: 0 0.5vw 1vh;
+      border: 1px solid #EEEEEE;
+      border-radius: 5px;
+      background: white;
+      padding: 4vh 3vw;
+      display: inline-block;
+      flex-grow: 1;
+
+      p{
+        margin: 0 0 2vh 0;
+        font-size: 1.1em;
+      }
+      h1{
+        font-weight: 400;
       }
     }
   }

@@ -10,3 +10,25 @@
       %p
         Местоположение:
         = @car.car_base
+  .blocks-container
+    .car-block
+      %pПробег за 30 дней
+      %h1= "#{@car.calculateTotalMileage(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))} км"
+    .car-block
+      %pСредний пробег за сутки
+      %h1= "#{@car.calculateTotalMileage(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))/30} км"
+    .car-block
+      %pРасход топлива за 30 дней
+      %h1= "#{@car.calculateTotalFuelSpend(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))} л"
+    .car-block
+      %pЗаправлено топлива за 30 дней
+      %h1= "#{@car.calculateTotalFuelIncome(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))} л"
+    .car-block
+      %pСредний расход топлива за день
+      %h1= "#{(@car.calculateTotalFuelSpend(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))/30).round(2)} л"
+    .car-block
+      %pСредняя заправка за день
+      %h1= "#{(@car.calculateTotalFuelSpend(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))/30).round(2)} л"
+    .car-block
+      %pРазница между запаравкой и расходом за 30 дней
+      %h1= "#{(@car.calculateTotalFuelIncome(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d")) - @car.calculateTotalFuelSpend(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))).round(2) } л"
