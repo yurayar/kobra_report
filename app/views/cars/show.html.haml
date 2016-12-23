@@ -27,7 +27,7 @@
       %h1= "#{(@car.calculateTotalFuelSpend(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))/30).round(2)} л"
     .car-block
       %pСредняя заправка за день
-      %h1= "#{(@car.calculateTotalFuelSpend(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))/30).round(2)} л"
+      %h1= "#{(@car.calculateTotalFuelIncome(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))/30).round(2)} л"
     .car-block
       %pРазница между запаравкой и расходом за 30 дней
       %h1= "#{(@car.calculateTotalFuelIncome(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d")) - @car.calculateTotalFuelSpend(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))).round(2) } л"
