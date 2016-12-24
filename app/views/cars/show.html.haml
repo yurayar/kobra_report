@@ -9,25 +9,51 @@
       %p
         Местоположение:
         = @car.car_base
+    .car-info-footer
+      - if current_officer.admin?
+        = link_to raw('<i class="fa fa-cog"></i>Изменить'), edit_car_path(@car), class: "car-btn"
+        = link_to raw('<i class="fa fa-trash"></i>Удалить'), @car, :method => :delete, :data => { :confirm => 'Are you sure?'}, class: "car-btn"
   .blocks-container
-    .car-block
-      %pПробег за 30 дней
-      %h1= "#{@car.calculateTotalMileage(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))} км"
-    .car-block
-      %pСредний пробег за сутки
-      %h1= "#{@car.calculateTotalMileage(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))/30} км"
-    .car-block
-      %pРасход топлива за 30 дней
-      %h1= "#{@car.calculateTotalFuelSpend(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))} л"
-    .car-block
-      %pЗаправлено топлива за 30 дней
-      %h1= "#{@car.calculateTotalFuelIncome(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))} л"
-    .car-block
-      %pСредний расход топлива за день
-      %h1= "#{(@car.calculateTotalFuelSpend(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))/30).round(2)} л"
-    .car-block
-      %pСредняя заправка за день
-      %h1= "#{(@car.calculateTotalFuelIncome(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))/30).round(2)} л"
-    .car-block
-      %pРазница между запаравкой и расходом за 30 дней
-      %h1= "#{(@car.calculateTotalFuelIncome(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d")) - @car.calculateTotalFuelSpend(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))).round(2) } л"
+    .blocks-row
+      .car-block
+        %p
+          Пробег по спидометру
+          %br
+          за 30 дней
+        %h1= "#{@car.calculateTotalMileage("mileage_day", 1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))} км"
+      .car-block
+        %p
+          Пробег по бортовому
+          %br
+          журналу за 30 дней
+        %h1= "#{@car.calculateTotalMileage("mileage_board", 1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))} км"
+      .car-block
+        %p
+          Пробег по GPS
+          %br
+          за 30 дней
+        %h1= "#{@car.calculateTotalMileage("mileage_day_gps", 1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))} км"
+      .car-block
+        %p
+          Средний пробег в день
+          %br
+          за 30 дней
+        %h1= "#{(@car.calculateTotalMileage("mileage_day", 1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))/30).round(1)} км"
+      .car-block
+        %pРасход топлива за 30 дней (10 л/100 км)
+        %h1= "#{@car.calculateTotalFuelSpend(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))} л"
+      .car-block
+        %pЗаправлено топлива за 30 дней
+        %h1= "#{@car.calculateTotalFuelIncome(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))} л"
+      .car-block
+        %pСредний расход топлива за день (10 л/100 км)
+        %h1= "#{(@car.calculateTotalFuelSpend(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))/30).round(1)} л"
+      .car-block
+        %pСредняя заправка за день
+        %h1= "#{(@car.calculateTotalFuelIncome(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))/30).round(1)} л"
+      .car-block
+        %p
+          Разница запаравки и
+          %br
+          расхода за 30 дней
+        %h1= "#{@car.calculateFuelDifference(1.month.ago.strftime("%Y-%m-%d"), Time.now.strftime("%Y-%m-%d"))} л"
