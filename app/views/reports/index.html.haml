@@ -77,6 +77,10 @@
           %p(class="ok")
             %i(class="fa fa-tint")
             Расход топлива соответствует (Зимний период)
+        - if report.fuel_difference > 3 and report.cold_period
+          %p(class="wrong")
+            %i(class="fa fa-tint")
+            Расход топлива не соответствует (Зимний период)
         - if report.fuel_difference == 0
           %p(class="ok")
             %i(class="fa fa-tint")
