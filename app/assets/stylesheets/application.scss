@@ -20,6 +20,8 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Arimo:400&subset=cyrillic);
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 
 @font-face {
   font-family: "Helvetica Neue";
@@ -36,8 +38,9 @@ html body{
     max-width: 100%;
     margin: 0;
 }
-h1, h2, h3, h4, h5, h6, p, input{
-  font-family: "Helvetica Neue";
+h1, h2, h3, h4, h5, h6, p, a, button, input{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   margin: 0;
 }
 a{
@@ -73,7 +76,7 @@ header .site-menu{
 .site-menu a{
     line-height: 8vh;
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1.2em;
     margin: 0 1vw;
     display: inline-block;
     color: #4f4f4f;

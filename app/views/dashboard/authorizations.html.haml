@@ -1,0 +1,18 @@
+.dashboard-wrapper
+  .dashboard-header
+  .dashboard-content
+    .dash-card
+      .header
+        %pВходы в систему:
+      .body
+        - @authorizations.each do |authorization|
+          .card-item
+            %p
+              %i(class="fa fa-clock-o")
+              = authorization.sign_in_at.strftime("%d.%m.%Y %H:%M")
+            %p
+              %i(class="fa fa-user")
+              = authorization.sign_in_officer
+            %p
+              %i(class="fa fa-desktop")
+              = authorization.sign_in_ip

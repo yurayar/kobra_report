@@ -8,4 +8,16 @@ class DashboardController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def officers
+    @officers = Officer.all
+  end
+
+  def authorizations
+    @authorizations = SignIn.all
+  end
+
+  def activity
+    @editions = Edition.all
+  end
 end

@@ -16,7 +16,7 @@
   .widgets
     .widgets-header
       .form
-        = simple_form_for(:car, :url => render_widgets_cars_path, remote: true) do |f|
+        = simple_form_for(:car, :url => render_widgets_cars_path, remote: true) do
           .form-inputs
             %i(class="fa fa-calendar")
             = text_field_tag :startDate, @widgetStart, class: "date", size: 10

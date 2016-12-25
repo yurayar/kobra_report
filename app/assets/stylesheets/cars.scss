@@ -11,7 +11,7 @@
     float: left;
     margin: 0 0.5vw 1vh;
     box-shadow: none;
-    border: 1px solid #EEEEEE;
+    border: 1px solid #e5e5e5;
 
     .show-car{
       padding: 2.2vh 4vw;
@@ -69,7 +69,7 @@
 
       p{
         font-size: 2em;
-        font-weight: 300;
+        font-weight: 400;
         display: inline-block;
         margin: 0 1vw;
       }
@@ -118,6 +118,7 @@
       margin: 0 0.5vw 1vh;
 
       .form{
+        display: inline-block;
 
         .form-inputs {
           border: 1px solid #e5e5e5;
@@ -192,6 +193,28 @@
       }
       h1{
         font-weight: 400;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1300px) and (min-height: 900px) and (max-height: 1100px) {
+  .cars-container .card {
+    .car-image{
+      height: 200px;
+    }
+    .car-info{
+      padding: 3vh 2vw 2vh 7vw;
+
+      .call-num{
+        left: 2vw;
+      }
+    }
+    .car-report-button {
+      padding-bottom: 3vh;
+
+      .show-car {
+        padding: 2vh 3vw;
       }
     }
   }

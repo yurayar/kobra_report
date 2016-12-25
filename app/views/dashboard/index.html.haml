@@ -2,41 +2,12 @@
   .dashboard-header
   .dashboard-nav
     .nav-item
-      %pПользователи
+      = link_to 'Дежурные офицеры', url_for(:controller => 'dashboard', :action => 'officers')
     .nav-item
-      %pАвторизации
+      = link_to 'Авторизации', url_for(:controller => 'dashboard', :action => 'authorizations')
     .nav-item
-      %pАктивность
+      = link_to 'Активность', url_for(:controller => 'dashboard', :action => 'activity')
   .dashboard-content
-    .dash-card
-      .header
-        %pВходы в систему:
-      .body
-        - @authorizations.each do |authorization|
-          .card-item
-            %p
-              %i(class="fa fa-clock-o")
-              = authorization.sign_in_at.strftime("%d.%m.%Y %H:%M")
-            %p
-              %i(class="fa fa-user")
-              = authorization.sign_in_officer
-            %p
-              %i(class="fa fa-desktop")
-              = authorization.sign_in_ip
-    .dash-card
-      .header
-        %pСоздать пользователя:
-      .card-item(class="officer-form")
-        = simple_form_for Officer.new, url: new_officer_url(Officer.new) do |f|
-          .input
-            = f.text_field :email, placeholder: "E-mail"
-          .input
-            = f.text_field :name, placeholder: "Имя"
-          .input
-            = f.text_field :username, placeholder: "Логин"
-          .input
-            = f.text_field :password, placeholder: "Пароль"
-          = f.submit 'Создать'
     .dash-card
       .header
         %pРапорты с несоответствиями:
@@ -54,14 +25,3 @@
               %p="Заправлено на  #{r.fuel_difference}  л больше "
             - if r.overspeed > 0
               %p= "Превышение скорости на #{r.overspeed} км/ч"
-    .dash-card
-      .header
-        %pИзменения рапортов:
-      - Edition.all.each do |e|
-        .card-item(class="card-item-editions")
-          .item-header
-            %p= "#{e.officer.name} редактировал рапорт №#{e.report.id} за #{e.report.report_date.strftime("%d/%m/%Y")}"
-          .item-body
-            %p= e.content.html_safe
-          .item-footer
-            %p="Дата изменения: #{e.created_at.strftime("%d/%m/%Y")}"

@@ -19,10 +19,11 @@
       width: 100%;
       border-bottom: 1px solid #EEEEEE;
 
-      p{
+      a{
         font-size: 1.2em;
         padding: 3vh 3vw;
         text-align: center;
+        display: block;
       }
     }
   }
@@ -133,6 +134,21 @@
     }
     .item-footer{
       padding: 2vh 2vw;
+    }
+  }
+}
+
+.dashboard-content{
+  .officers{
+    padding: 3vh 2vw;
+    border: 1px solid #e5e5e5;
+    background: white;
+
+    .officer{
+      width: 100%;
+      padding: 3vh 1vw;
+      margin-bottom: 2vh;
+      border: 1px solid #e5e5e5;
     }
   }
 }

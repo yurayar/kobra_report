@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get '/dashboard' => 'dashboard#index'
+  get '/dashboard/officers' => 'dashboard#officers'
+  get '/dashboard/authorizations' => 'dashboard#authorizations'
+  get '/dashboard/activity' => 'dashboard#activity'
 
   devise_for :officers
   devise_scope :officer do
