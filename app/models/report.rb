@@ -88,6 +88,7 @@ class Report < ApplicationRecord
   def check_speed
     #Check speed
     overspeed = 0
+    self.max_speed = self.max_speed.round(1)
     if self.max_speed > 70 and self.run_on_track == false
       overspeed += self.max_speed - 60.0
       self.overspeed = overspeed

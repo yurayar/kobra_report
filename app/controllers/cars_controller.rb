@@ -1,6 +1,10 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
   before_action :check_if_admin
+
+  respond_to :html, :js
+
+  @widgetStart
   # GET /cars
   # GET /cars.json
   def index
@@ -10,6 +14,11 @@ class CarsController < ApplicationController
   # GET /cars/1
   # GET /cars/1.json
   def show
+    if @widgetStart.nil?
+      @widgetStart = 1.month.ago.strftime("%d/%m/%Y")
+      @widgetEnd = Date.today.strftime("%d/%m/%Y")
+      @period = 30
+    end
   end
 
   # GET /cars/new
@@ -49,6 +58,13 @@ class CarsController < ApplicationController
         format.json { render json: @car.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def renderWidgets
+    @car = Car.find(params[:car_id])
+    @widgetStart = params[:startDate]
+    @widgetEnd = params[:endDate]
+    @period = (DateTime.parse(@widgetEnd) - DateTime.parse(@widgetStart)).to_i
   end
 
   # DELETE /cars/1

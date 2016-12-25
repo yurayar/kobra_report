@@ -73,4 +73,8 @@ $(document).ready(function(){
         }
         targetElement.val(val.toString());
     });
+    $('.widgets-header .date').datepicker({
+        dateFormat: "dd/mm/yy",
+        defaultDate: 0
+    });
 });

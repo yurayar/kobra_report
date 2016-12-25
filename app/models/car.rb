@@ -19,7 +19,7 @@ class Car < ApplicationRecord
       result += report.mileage_board
     end
 
-    return result;
+    return result.round(1);
   end
 
   def calculateTotalMileageGPS (parameter, startDate, endDate)
@@ -29,7 +29,7 @@ class Car < ApplicationRecord
       result += report.send(parameter)
     end
 
-    return result;
+    return result.round(1);
   end
 
   def calculateAverageMileage (startDate, endDate)
@@ -87,4 +87,5 @@ class Car < ApplicationRecord
 
     return (income - spend).round(1);
   end
+
 end
