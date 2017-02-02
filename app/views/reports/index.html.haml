@@ -44,7 +44,8 @@
           %p= Car.find_by(:id => report.car_id).legal_num
         %p
           %i(class="fa fa-calendar")
-          = report.report_date.strftime("%d.%m.%Y")
+          - if report.report_date
+            = report.report_date.strftime("%d.%m.%Y")
         %p
           Офицер:
           = report.officer.name

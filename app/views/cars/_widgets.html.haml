@@ -1,55 +1,81 @@
-.widgets-row
-  .car-block(class="animated fadeIn")
-    %p
-      Пробег по спидометру
-      %br
-      за период
-    %h1= "#{@car.calculateTotalMileage("mileage_day", @widgetStart, @widgetEnd)} км"
-  .car-block(class="animated fadeIn")
-    %p
-      Пробег по бортовому
-      %br
-      журналу за период
-    %h1= "#{@car.calculateTotalMileage("mileage_board", @widgetStart, @widgetEnd)} км"
-  .car-block(class="animated fadeIn")
-    %p
-      Пробег по GPS
-      %br
-      за период
-    %h1= "#{@car.calculateTotalMileage("mileage_day_gps", @widgetStart, @widgetEnd)} км"
-  .car-block(class="animated fadeIn")
-    %p
-      Средний пробег в день
-      %br
-      за период
-    %h1= "#{(@car.calculateTotalMileage("mileage_day", @widgetStart, @widgetEnd)/@period).round(1)} км"
-  .car-block(class="animated fadeIn")
-    %p
-      Расход топлива за
-      %br
-      период (10 л/100 км)
-    %h1= "#{@car.calculateTotalFuelSpend(@widgetStart, @widgetEnd)} л"
-  .car-block(class="animated fadeIn")
-    %p
-      Заправлено топлива
-      %br
-      за период
-    %h1= "#{@car.calculateTotalFuelIncome(@widgetStart, @widgetEnd)} л"
-  .car-block(class="animated fadeIn")
-    %p
-      Средний расход топлива
-      %br
-      в день (10 л/100 км)
-    %h1= "#{(@car.calculateTotalFuelSpend(@widgetStart, @widgetEnd)/@period).round(1)} л"
-  .car-block(class="animated fadeIn")
-    %p
-      Средняя заправка в день
-      %br
-      за период
-    %h1= "#{(@car.calculateTotalFuelIncome(@widgetStart, @widgetEnd)/@period).round(1)} л"
-  .car-block(class="animated fadeIn")
-    %p
-      Разница запаравки и
-      %br
-      расхода за период
-    %h1= "#{@car.calculateFuelDifference(@widgetStart, @widgetEnd)} л"
+.widgets-header
+  .form
+    = simple_form_for(:car, :url => render_widgets_cars_path, remote: true) do
+      .form-inputs
+        %i(class="fa fa-calendar")
+        = text_field_tag :startDate, Date.parse(@widgetStart).strftime("%d/%m/%Y"), class: "date", size: 10
+        %span -
+        = text_field_tag :endDate, Date.parse(@widgetEnd).strftime("%d/%m/%Y"), class: "date", size: 10
+        = hidden_field_tag :car_id, @car.id
+        = button_tag(type: 'submit') do
+          %i(class="fa fa-arrow-right")
+  .form
+    .select-date-buttons
+      .btn-date
+        = button_to('Неделя', render_widgets_cars_path, {remote: true, params: {startDate: 1.week.ago.strftime("%Y/%m/%d"),
+              endDate: Date.today.strftime("%Y/%m/%d"), car_id: @car.id}})
+      .btn-date
+        = button_to('Месяц', render_widgets_cars_path, {remote: true, params: {startDate: 1.month.ago.strftime("%Y/%m/%d"),
+              endDate: Date.today.strftime("%Y/%m/%d"), car_id: @car.id}})
+      .btn-date
+        = button_to('Квартал', render_widgets_cars_path, {remote: true, params: {startDate: 3.month.ago.strftime("%Y/%m/%d"),
+              endDate: Date.today.strftime("%Y/%m/%d"), car_id: @car.id}})
+      .btn-date
+        = button_to('Год', render_widgets_cars_path, {remote: true, params: {startDate: 1.year.ago.strftime("%Y/%m/%d"),
+              endDate: Date.today.strftime("%Y/%m/%d"), car_id: @car.id}})
+.widgets-container
+  .widgets-row
+    .car-block(class="animated fadeIn")
+      %p
+        Пробег по спидометру
+        %br
+        за период
+      %h1= "#{@car.calculateTotalMileage("mileage_day", @widgetStart, @widgetEnd)} км"
+    .car-block(class="animated fadeIn")
+      %p
+        Пробег по бортовому
+        %br
+        журналу за период
+      %h1= "#{@car.calculateTotalMileage("mileage_board", @widgetStart, @widgetEnd)} км"
+    .car-block(class="animated fadeIn")
+      %p
+        Пробег по GPS
+        %br
+        за период
+      %h1= "#{@car.calculateTotalMileage("mileage_day_gps", @widgetStart, @widgetEnd)} км"
+    .car-block(class="animated fadeIn")
+      %p
+        Средний пробег в день
+        %br
+        за период
+      %h1= "#{(@car.calculateTotalMileage("mileage_day", @widgetStart, @widgetEnd)/@period).round(1)} км"
+    .car-block(class="animated fadeIn")
+      %p
+        Расход топлива за
+        %br
+        период (10 л/100 км)
+      %h1= "#{@car.calculateTotalFuelSpend(@widgetStart, @widgetEnd)} л"
+    .car-block(class="animated fadeIn")
+      %p
+        Заправлено топлива
+        %br
+        за период
+      %h1= "#{@car.calculateTotalFuelIncome(@widgetStart, @widgetEnd)} л"
+    .car-block(class="animated fadeIn")
+      %p
+        Средний расход топлива
+        %br
+        в день (10 л/100 км)
+      %h1= "#{(@car.calculateTotalFuelSpend(@widgetStart, @widgetEnd)/@period).round(1)} л"
+    .car-block(class="animated fadeIn")
+      %p
+        Средняя заправка в день
+        %br
+        за период
+      %h1= "#{(@car.calculateTotalFuelIncome(@widgetStart, @widgetEnd)/@period).round(1)} л"
+    .car-block(class="animated fadeIn")
+      %p
+        Разница запаравки и
+        %br
+        расхода за период
+      %h1= "#{@car.calculateFuelDifference(@widgetStart, @widgetEnd)} л"

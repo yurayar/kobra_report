@@ -1,6 +1,18 @@
 .cars-container
+  .cars-header
+    .search-form-inputs
+      = search_form_for @q do |q|
+        %p
+          %i(class="fa fa-car")
+          Поиск
+        = q.search_field :name_start, placeholder: "Название", size: 15
+        = q.search_field :call_num_eq, placeholder: "Позывной", size: 15
+        = q.search_field :legal_num_start, placeholder: "Номерной знак", size: 15
+        = button_tag(type: 'submit') do
+          %i(class="fa fa-search")
   - @cars.each do |car|
     .card
+      %a
       .car-image(style="background-image:url(#{car.car_photo.url});")
         .car-number
           .flag

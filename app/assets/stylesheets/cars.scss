@@ -1,15 +1,70 @@
 // Place all the styles related to the cars controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.cars-header {
+  width: 100%;
+  display: table;
+  margin-bottom: 7vh;
+
+  .search-form-inputs {
+    background: white;
+    display: table;
+    border: 1px solid #e5e5e5;
+    margin: 0 auto;
+
+    input {
+      line-height: 5vh;
+      -webkit-appearance: none;
+      padding: 0 2vw;
+      font-size: 1.2em;
+      float: left;
+      border-top: none;
+      border-bottom: none;
+      border-left: none;
+      border-right: 1px solid #e5e5e5;
+      display: block;
+
+      &::-webkit-input-placeholder {
+        color: #4f4f4f;
+      }
+    }
+
+    button[type="submit"] {
+      height: 5vh;
+      font-size: 1.2em;
+      background: white;
+      cursor: pointer;
+      padding: 0 2vw;
+      border: none;
+      outline: none;
+
+      &:hover {
+        background: #FAFAFA;
+      }
+    }
+
+    p {
+      float: left;
+      line-height: 5vh;
+      padding: 0 2vw;
+      border-right: 1px solid #e5e5e5;
+      font-size: 1.2em;
+      i.fa-car {
+        margin-right: 0.5vw;
+      }
+    }
+  }
+}
 .cars-container{
+  width: 100%;
+  min-height: 92vh;
   padding: 7vh 4vw;
   background: #F5F5F5;
   display: table;
-  min-height: 92vh;
 
   .card{
     float: left;
-    margin: 0 0.5vw 1vh;
+    margin: 0 0.5vw 3vh;
     box-shadow: none;
     border: 1px solid #e5e5e5;
 
@@ -108,17 +163,20 @@
       }
     }
   }
-  .widgets{
+  .widgets {
     float: left;
     width: 64vw;
     padding-left: 3vw;
+    display: table;
 
-    .widgets-header{
-      padding: 0;
-      margin: 0 0.5vw 1vh;
+    .widgets-header {
+      padding: 0 0.5vw;
+      margin: 0;
+      display: table;
 
-      .form{
-        display: inline-block;
+      .form {
+        float: left;
+        display: table;
 
         .form-inputs {
           border: 1px solid #e5e5e5;
@@ -127,7 +185,7 @@
           display: inline-block;
           padding-left: 1vw;
 
-          i{
+          i {
             font-size: 18px;
             margin-right: 0.5vw;
           }
@@ -139,6 +197,7 @@
             outline: none;
             border: none;
             text-align: center;
+            padding: 0;
           }
 
           button[type="submit"] {
@@ -154,45 +213,84 @@
             line-height: 4.5vh;
             cursor: pointer;
             outline: none;
-            
-            i{
+
+            i {
               font-size: 18px;
               margin: 0;
             }
 
-            &:hover{
+            &:hover {
               background: #FAFAFA;
-              border: 1px solid #EFEFEF;
+              border-color: #EFEFEF;
+            }
+          }
+        }
+
+        .select-date-buttons {
+          border: 1px solid #e5e5e5;
+          border-radius: 3px;
+          margin-left: 0.5vw;
+          overflow: hidden;
+          display: table;
+
+          .btn-date {
+            float: left;
+            cursor: pointer;
+            border-left: 1px solid #e5e5e5;
+
+            input[type="submit"] {
+              -webkit-appearance: none;
+              line-height: 5vh;
+              padding: 0 1.5vw;
+              background: white;
+              border: none;
+              font-size: 1.1em;
+              cursor: pointer;
+              outline: none;
+
+              &:hover{
+                background: #FAFAFA;
+              }
+            }
+
+            &:first-child{
+              border: none;
             }
           }
         }
       }
     }
 
-    .widgets-row{
+    .widgets-container {
+      width: 100%;
       display: flex;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      flex-direction: row;
-    }
-    .car-block{
-      width: 25%;
-      max-width: 30%;
-      margin: 0 0.5vw 1vh;
-      border: 1px solid #e5e5e5;
-      border-radius: 5px;
-      background: white;
-      padding: 3vh 3vw;
-      display: inline-block;
-      flex-grow: 1;
-      animation-duration: 0.7s;
 
-      p{
-        margin: 0 0 2vh 0;
-        font-size: 1.1em;
+      .widgets-row {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding: 2vh 0;
       }
-      h1{
-        font-weight: 400;
+      .car-block {
+        width: 25%;
+        max-width: 30%;
+        margin: 0 0.5vw 1vh;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        background: white;
+        padding: 3vh 3vw;
+        display: inline-block;
+        flex-grow: 1;
+        animation-duration: 0.7s;
+
+        p {
+          margin: 0 0 2vh 0;
+          font-size: 1.1em;
+        }
+        h1 {
+          font-weight: 400;
+        }
       }
     }
   }

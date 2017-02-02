@@ -14,7 +14,7 @@ $appGreen: #70c050;
 .card{
   width: 22vw;
   height: auto;
-  margin: 0 0.5vw 4vh 0.5vw;
+  margin: 0 0.5vw 3vh 0.5vw;
   //box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   border: 1px solid #e5e5e5;
@@ -214,7 +214,6 @@ $appGreen: #70c050;
     margin-right: 0.5vw;
   }
   .report-date input{
-    width: 90px;
     line-height: 7vh;
     font-size: 1.3em;
     background: transparent;

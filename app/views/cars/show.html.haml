@@ -14,16 +14,4 @@
         = link_to raw('<i class="fa fa-cog"></i>Изменить'), edit_car_path(@car), class: "car-btn"
         = link_to raw('<i class="fa fa-trash"></i>Удалить'), @car, :method => :delete, :data => { :confirm => 'Are you sure?'}, class: "car-btn"
   .widgets
-    .widgets-header
-      .form
-        = simple_form_for(:car, :url => render_widgets_cars_path, remote: true) do
-          .form-inputs
-            %i(class="fa fa-calendar")
-            = text_field_tag :startDate, @widgetStart, class: "date", size: 10
-            %span -
-            = text_field_tag :endDate, @widgetEnd, class: "date", size: 10
-            = hidden_field_tag :car_id, @car.id
-            = button_tag(type: 'submit') do
-              %i(class="fa fa-arrow-right")
-    .widgets-container
-      = render 'widgets'
+    = render 'widgets'

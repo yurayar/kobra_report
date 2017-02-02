@@ -1,1 +1,5 @@
-$('.widgets-container').html("<%= j (render 'widgets')%>");
+$('.widgets').html("<%= j (render 'widgets')%>");
+$('.widgets-header .date').datepicker({
+    dateFormat: "dd/mm/yy",
+    defaultDate: 0
+});
