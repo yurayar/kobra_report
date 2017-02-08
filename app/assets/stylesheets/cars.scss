@@ -63,10 +63,17 @@
   display: table;
 
   .card{
+    width: 24%;
     float: left;
-    margin: 0 0.5vw 3vh;
+    margin: 0 0.5% 3vh;
     box-shadow: none;
     border: 1px solid #e5e5e5;
+
+    .car-info{
+      h4{
+        font-size: 1.3em;
+      }
+    }
 
     .show-car{
       padding: 2.2vh 4vw;

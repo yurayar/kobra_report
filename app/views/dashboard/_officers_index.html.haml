@@ -10,14 +10,15 @@
         = o.name.split[2]
     .officer-content
       %p
+        %i(class="fa fa-folder" aria-hidden="true")
         Рапортов:
         = o.reports.count
     .officer-footer
       - if o.officer_active
         = button_to change_officer_officers_path, {remote: true, params: {officer: o.id}, class: 'officer-active active-btn'} do
-          %i(class="fa fa-toggle-on")
+          %i(class="fa fa-toggle-on animated fadeIn")
           %pАктивен
       - else
         = button_to change_officer_officers_path, {remote: true, params: {officer: o.id}, class: 'officer-not-active active-btn'} do
-          %i(class="fa fa-toggle-off")
+          %i(class="fa fa-toggle-off animated fadeIn")
           %pНе активен

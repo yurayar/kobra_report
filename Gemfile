@@ -26,7 +26,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
-gem 'font-awesome-sass', '~> 4.6.2'
+gem 'font-awesome-sass', '~> 4.7.0'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'whenever', require: false
