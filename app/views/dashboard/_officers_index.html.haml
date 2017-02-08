@@ -1,4 +1,4 @@
-- @officers.each do |o|
+- @officers.order('officer_active DESC').each do |o|
   .officer
     .officer-header
       %p(class="name-logo")

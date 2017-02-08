@@ -6,10 +6,16 @@ class Officer < ApplicationRecord
   has_many :reports
   has_many :sign_ins
 
+  before_validation :set_email
+
   after_save :create_sign_in, if: :sign_in_count_changed?
 
   def create_sign_in
     SignIn.create(:sign_in_at => DateTime.now, :sign_in_officer => self.name)
+  end
+
+  def set_email
+    self.email = self.username + '@kobra.ks.ua'
   end
 
   def active_for_authentication?

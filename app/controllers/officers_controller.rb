@@ -8,13 +8,8 @@ class OfficersController < ApplicationController
   end
 
   def create
-    @officer = Officer.new(officer_params)
-    if @officer.save
-      flash[:notice] = "Successfully created User."
-      redirect_to root_path
-    else
-      redirect_to cars_path
-    end
+    @officer = Officer.create(officer_params)
+    @officers = Officer.all
   end
 
   def changeOfficer
