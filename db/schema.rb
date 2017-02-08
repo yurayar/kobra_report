@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222180651) do
+ActiveRecord::Schema.define(version: 20170208052546) do
 
   create_table "cars", force: :cascade do |t|
     t.string   "name"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20161222180651) do
     t.string   "name"
     t.string   "username"
     t.boolean  "admin",                  default: false
+    t.boolean  "officer_active",         default: true
     t.index ["email"], name: "index_officers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_officers_on_reset_password_token", unique: true
   end

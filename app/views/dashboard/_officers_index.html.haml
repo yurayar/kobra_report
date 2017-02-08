@@ -1,0 +1,23 @@
+- @officers.each do |o|
+  .officer
+    .officer-header
+      %p(class="name-logo")
+        = o.name.split(//)[0]
+      %p
+        = o.name.split[0]
+        %br
+        = o.name.split[1]
+        = o.name.split[2]
+    .officer-content
+      %p
+        Рапортов:
+        = o.reports.count
+    .officer-footer
+      - if o.officer_active
+        = button_to change_officer_officers_path, {remote: true, params: {officer: o.id}, class: 'officer-active active-btn'} do
+          %i(class="fa fa-toggle-on")
+          %pАктивен
+      - else
+        = button_to change_officer_officers_path, {remote: true, params: {officer: o.id}, class: 'officer-not-active active-btn'} do
+          %i(class="fa fa-toggle-off")
+          %pНе активен

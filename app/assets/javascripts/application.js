@@ -77,4 +77,10 @@ $(document).ready(function(){
         dateFormat: "dd/mm/yy",
         defaultDate: 0
     });
+    $('.officers-header .add-officer').click(function(){
+       $('.officer-form-wrapper').show();
+    });
+    $('.officer-form .header .fa-remove').click(function(){
+       $('.officer-form-wrapper').hide();
+    });
 });

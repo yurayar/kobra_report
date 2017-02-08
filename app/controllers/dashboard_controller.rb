@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+
   def index
     if current_officer.admin?
     @officers = Officer.all

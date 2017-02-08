@@ -12,4 +12,23 @@ class Officer < ApplicationRecord
     SignIn.create(:sign_in_at => DateTime.now, :sign_in_officer => self.name)
   end
 
+  def active_for_authentication?
+    super && self.is_active
+  end
+
+  def is_active
+    return self.officer_active
+  end
+
+  def deactivate_officer
+    self.update_attribute(:officer_active, false)
+  end
+
+  def activate_officer
+    self.update_attribute(:officer_active, true)
+  end
+
+  def inactive_message
+    "Sorry, this account has been deactivated."
+  end
 end

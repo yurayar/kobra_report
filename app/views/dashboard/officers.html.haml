@@ -1,22 +1,26 @@
-.dashboard-wrapper
-  .dashboard-header
+.dashboard-wrapper(class="officers-wrapper")
   .dashboard-content
-    .officers(class="dash-card")
-      - @officers.each do |o|
-        .officer
-          = o.name
-          = o.email
-    .dash-card
-      .header
-        %pСоздать пользователя:
-      .card-item(class="officer-form")
-        = simple_form_for Officer.new, url: new_officer_url(Officer.new) do |f|
-          .input
-            = f.text_field :email, placeholder: "E-mail"
-          .input
-            = f.text_field :name, placeholder: "Имя"
-          .input
-            = f.text_field :username, placeholder: "Логин"
-          .input
-            = f.text_field :password, placeholder: "Пароль"
-          = f.submit 'Создать'
+    .officer-form-wrapper
+      .officer-form
+        .header
+          %pДобавить офицера:
+          %i(class="fa fa-remove")
+        .card-item(class="form")
+          = simple_form_for Officer.new do |f|
+            .input
+              = f.text_field :email, placeholder: "E-mail"
+            .input
+              = f.text_field :name, placeholder: "ФИО"
+            .input
+              = f.text_field :username, placeholder: "Логин"
+            .input
+              = f.text_field :password, placeholder: "Пароль"
+            = f.submit 'Создать'
+    .officers
+      .officers-header
+        %pСписок дежурных офицеров
+        %p(class="add-officer")
+          %i(class="fa fa-plus-square")
+          Добавить офицера
+      .officers-content
+        = render 'officers_index'

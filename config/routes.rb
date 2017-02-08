@@ -8,18 +8,23 @@ Rails.application.routes.draw do
   get '/dashboard/activity' => 'dashboard#activity'
 
   devise_for :officers
-  devise_scope :officer do
+  devise_scope :officers do
     get  'officer/new' => 'officer#new'
     post 'officer/new' => 'officer#create'
   end
-  resources :officer, :controller => 'officer'
+  resources :officers, :controller => 'officers'
   scope '/dashboard' do
-    resources :officer
+    resources :officers
   end
   resources :reports
   resources :cars do
     collection do
       post 'render_widgets', :action => :renderWidgets
+    end
+  end
+  resources :officers do
+    collection do
+      post 'change_officer', :action => :changeOfficer
     end
   end
 
