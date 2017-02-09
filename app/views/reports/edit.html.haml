@@ -125,6 +125,18 @@
             .report-checkbox
               = g.check_box :car_kit
               %label(for="report_car_kit")
+          .field
+            %p
+              Движение вне города
+            .report-checkbox
+              = g.check_box :run_on_track, :id => "report_run_on_track_#{@report.car.id}"
+              = label_tag "report_run_on_track_#{@report.car.id}", ''
+          .field
+            %p
+              Зимний период
+            .report-checkbox
+              = g.check_box :cold_period, :id => "report_cold_period_#{@report.car.id}"
+              = label_tag "report_cold_period_#{@report.car.id}", ''
         .report-form-footer
           %p
             = "Ответственный офицер: #{@report.officer.name}"

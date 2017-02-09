@@ -75,6 +75,27 @@ header .site-menu{
     height: 100%;
     float: left;
     margin-left: 2vw;
+
+    p.officer-name{
+      line-height: 8vh;
+      display: none;
+      float: right;
+      margin-right: 1vw;
+      font-size: 1.1em;
+    }
+
+    span.officer-avatar{
+      width: 6vh;
+      line-height: 6vh;
+      display: none;
+      float: right;
+      color: black;
+      background: #EEEEEE;
+      border-radius: 100%;
+      text-align: center;
+      margin: 1vh 0;
+      font-size: 1.5em;
+    }
 }
 .site-menu a{
     line-height: 8vh;

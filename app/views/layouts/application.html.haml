@@ -19,6 +19,10 @@
           - if current_officer.admin?
             = link_to 'Офицеры', '/dashboard/officers'
           - if officer_signed_in?
+            %span.officer-avatar
+              = current_officer.name.split(//)[0]
+            %p.officer-name
+              = current_officer.name
             = link_to(destroy_officer_session_path, :method => :delete, class: "logout") do
               %p
                 Выйти
