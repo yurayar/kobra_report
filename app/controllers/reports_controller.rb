@@ -7,10 +7,10 @@ class ReportsController < ApplicationController
   # GET /reports.json
   def index
     @reports = Report.all
-    @reports = @reports.page params[:page]
     @cars = Car.all
     @q = Report.ransack(params[:q])
     @reports = @q.result.includes(:car)
+    @reports = @reports.order(created_at: :desc).page(params[:page]).per(30)
   end
 
   # GET /reports/1
