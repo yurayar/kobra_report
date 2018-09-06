@@ -32,6 +32,7 @@ gem 'cloudinary'
 gem 'whenever', require: false
 gem 'premailer-rails'
 gem 'nokogiri'
+gem 'kaminari'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

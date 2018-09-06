@@ -11,6 +11,8 @@ class Report < ApplicationRecord
 
   after_update :track_changes
 
+  paginates_per 30
+
   def track_changes
     content = " "
     if self.fuel_income_changed?
